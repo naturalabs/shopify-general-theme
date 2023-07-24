@@ -28,7 +28,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>",
+            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/strong><\/p>",
             "text_style": "body"
           }
         },
@@ -91,5 +91,7 @@
       }
     }
   },
-  "order": ["section_header"]
+  "order": [
+    "section_header"
+  ]
 }

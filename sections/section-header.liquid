@@ -14,6 +14,10 @@
   }
 {%- endstyle -%}
 <style>
+  p {
+    padding: 0;
+    margin: 0;
+  }
   .section {
     background-color: var(--gradient-background);
   }
@@ -158,7 +162,7 @@
 
 {% schema %}
 {
-  "name": "Section General",
+  "name": "Section Header",
   "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
@@ -527,7 +531,7 @@
     },
     {
       "type": "icon-text",
-      "name": "Icon Text Block",
+      "name": "Check with Text",
       "limit": 5,
       "settings": [
         {
@@ -541,7 +545,7 @@
   ],
   "presets": [
     {
-      "name": "Section General",
+      "name": "Section Header",
       "blocks": [
         {
           "type": "ratings"
