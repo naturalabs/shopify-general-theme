@@ -89,7 +89,80 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "section_problem": {
+      "type": "section-problem",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "CAPTION",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>",
+            "text_style": "body"
+          }
+        },
+        "check_with_text1": {
+          "type": "icon-text",
+          "settings": {
+            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
+          }
+        },
+        "check_with_text2": {
+          "type": "icon-text",
+          "settings": {
+            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
+          }
+        },
+        "check_with_text3": {
+          "type": "icon-text",
+          "settings": {
+            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
+          }
+        },
+        "check_with_text4": {
+          "type": "icon-text",
+          "settings": {
+            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "heading",
+        "text",
+        "check_with_text1",
+        "check_with_text2",
+        "check_with_text3",
+        "check_with_text4"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
-  "order": ["section_header"]
+  "order": ["section_header", "section_problem"]
 }
