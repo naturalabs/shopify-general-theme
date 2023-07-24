@@ -1,7 +1,7 @@
 {
   "sections": {
-    "section_general": {
-      "type": "section-general",
+    "section_header": {
+      "type": "section-header",
       "blocks": {
         "ratings": {
           "type": "ratings",
@@ -56,5 +56,5 @@
       }
     }
   },
-  "order": ["section_general"]
+  "order": ["section_header"]
 }
