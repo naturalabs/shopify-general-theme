@@ -90,6 +90,68 @@
         "padding_bottom": 36
       }
     },
+    "section_brag_bars": {
+      "type": "section-brag-bars",
+      "blocks": {
+        "brag-bars-image1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/brag-bars-womens-health.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "brag-bars-image2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/brag-bars-gq.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "brag-bars-image3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/brag-bars-veritas.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "brag-bars-image4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/brag-bars-menshealth.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["brag-bars-image1", "brag-bars-image2", "brag-bars-image3", "brag-bars-image4"],
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
     "section_problem": {
       "type": "section-problem",
       "blocks": {
@@ -286,5 +348,5 @@
       }
     }
   },
-  "order": ["section_header", "section_problem", "section_solution", "section_offer"]
+  "order": ["section_header", "section_brag_bars", "section_problem", "section_solution", "section_offer"]
 }
