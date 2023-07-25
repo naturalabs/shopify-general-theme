@@ -25,6 +25,10 @@
   .section {
     background-color: var(--gradient-background);
   }
+  .brag-rights svg {
+    height: 100px;
+    width: 200px;
+  }
 </style>
 {%- liquid
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
@@ -130,6 +134,10 @@
                         class: 'multicolumn-card__image'
                     }}
                   </div>
+                </div>
+              {%- else -%}
+                <div class="brag-rights">
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                 </div>
               {%- endif -%}
               <div class="multicolumn-card__info">
@@ -289,7 +297,7 @@
       "min": 1,
       "max": 6,
       "step": 1,
-      "default": 3,
+      "default": 4,
       "label": "t:sections.multicolumn.settings.columns_desktop.label"
     },
     {
@@ -339,7 +347,7 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
-      "default": "background-1"
+      "default": "background-2"
     },
     {
       "type": "header",
@@ -405,13 +413,11 @@
         {
           "type": "inline_richtext",
           "id": "title",
-          "default": "Column",
           "label": "t:sections.multicolumn.blocks.column.settings.title.label"
         },
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
           "label": "t:sections.multicolumn.blocks.column.settings.text.label"
         },
         {
@@ -431,6 +437,9 @@
     {
       "name": "Section Brag Bars",
       "blocks": [
+        {
+          "type": "column"
+        },
         {
           "type": "column"
         },
