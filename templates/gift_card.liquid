@@ -91,11 +91,19 @@
       }
     {% endstyle %}
 
+    {% comment %}
+      {%- unless settings.type_body_font.system? -%}
+        <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      {%- endunless -%}
+      {%- unless settings.type_header_font.system? -%}
+        <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      {%- endunless -%}
+    {% endcomment %}
     {%- unless settings.type_body_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      {{ settings.type_body_font | font_url | preload_tag: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {%- endunless -%}
     {%- unless settings.type_header_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      {{ settings.type_header_font | font_url | preload_tag: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
     {%- endunless -%}
 
     {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
@@ -129,12 +137,22 @@
           {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
           {{ settings.logo | image_url: width: 570 | image_tag: class: 'gift-card__image', alt: logo_alt }}
         {%- else %}
+          {% comment %}
+            <img
+              class="gift-card__image"
+              src="{{ 'gift-card/card.svg' | shopify_asset_url }}"
+              alt=""
+              height="{{ 570 | divided_by: 1.5 }}"
+              width="570"
+            >
+          {% endcomment %}
           <img
             class="gift-card__image"
             src="{{ 'gift-card/card.svg' | shopify_asset_url }}"
             alt=""
             height="{{ 570 | divided_by: 1.5 }}"
             width="570"
+            loading="lazy"
           >
         {%- endif %}
       </div>
