@@ -294,6 +294,57 @@
         "padding_bottom": 36
       }
     },
+    "section_social_proof": {
+      "type": "section-social-proof",
+      "blocks": {
+        "social-proof-1": {
+          "type": "column",
+          "settings": {
+            "ratings": 5,
+            "title": "Delicious Coffee",
+            "text": "<p>“I love how convenient it is, and how is makesthe perfect ice coffee!!’</p>",
+            "customer": "Jenifer V.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "social-proof-2": {
+          "type": "column",
+          "settings": {
+            "ratings": 5,
+            "title": "Easy To Make",
+            "text": "<p>“To say I am Obsessed with all these coffees isan understatement. I have limited time inmorning and it so easy and fast to prepare, andthe taste is amazing !!!”</p>",
+            "customer": "Celeste O.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "social-proof-3": {
+          "type": "column",
+          "settings": {
+            "ratings": 5,
+            "title": "Quick & Easy",
+            "text": "<p>“Javy is so easy and do good! I’ve been makingmy own iced coffees at home for awhile, butthis is the best yet!”</p>",
+            "customer": "Ann L.",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["social-proof-1", "social-proof-2", "social-proof-3"],
+      "settings": {
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "section_offer": {
       "type": "section-offer",
       "blocks": {
@@ -414,6 +465,7 @@
     "section_brag_bars",
     "section_problem",
     "section_solution",
+    "section_social_proof",
     "section_offer",
     "section_faq"
   ]
