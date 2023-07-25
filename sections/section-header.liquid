@@ -152,6 +152,10 @@
                     {%- render 'icon-right' -%}
                   </a>
                 {%- endif -%}
+              {%- when 'trust-badge' -%}
+                <div class="trust-badge">
+                  <h1>Trust Badge</h1>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -541,6 +545,12 @@
           "label": "Paragraph Text"
         }
       ]
+    },
+    {
+      "type": "trust-badge",
+      "name": "Trust Badge",
+      "limit": 1,
+      "settings": []
     }
   ],
   "presets": [
@@ -573,6 +583,9 @@
         },
         {
           "type": "button"
+        },
+        {
+          "type": "trust-badge"
         }
       ]
     }
