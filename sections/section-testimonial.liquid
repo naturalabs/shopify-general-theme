@@ -60,7 +60,7 @@
             {% when 'two_column_grid' %}
               <div class="grid grid--2-col">
                 <div class="grid__item">
-                  <p>{{ block.settings.column_1_text }}</p>
+                  <p>{{ block.settings.column_1_text_1 }}</p>
                   <div class="ratings-block">
                     {% assign rating = block.settings.column_1_rating | round %}
                     <div class="star-rating">
@@ -69,7 +69,7 @@
                       {% endfor %}
                     </div>
                     <p class="ratings-paragraph">
-                      {{ block.settings.column_1_text }} (Rating: {{ block.settings.column_1_rating }})
+                      {{ block.settings.column_1_text_2 }}
                     </p>
                   </div>
                 </div>
@@ -79,15 +79,22 @@
                     <div class="ratings-block">
                       {% assign rating_id = 'column_2_rating_' | append: id %}
                       {% assign rating = block.settings[rating_id] | round %}
-                      <div class="star-rating">
-                        {% for i in (1..rating) %}
-                          <span class="star rated">&#9733;</span>
-                        {% endfor %}
-                      </div>
                       <p class="ratings-paragraph">
                         {% assign text_id = 'column_2_text_' | append: id %}
-                        {{ block.settings[text_id] }} (Rating: {{ rating }})
+                        {{ block.settings[text_id] }}
                       </p>
+
+                      <div class="ratings-block">
+                        <div class="star-rating">
+                          {% for i in (1..rating) %}
+                            <span class="star rated">&#9733;</span>
+                          {% endfor %}
+                        </div>
+                        <span>
+                          {% assign text_id = 'column_2_rating_' | append: id %}
+                          {{ block.settings[text_id] }}
+                        </span>
+                      </div>
                     </div>
                   {% endfor %}
                 </div>
@@ -323,14 +330,14 @@
       "settings": [
         {
           "type": "text",
-          "id": "column_1_text",
-          "label": "Column 1 text",
-          "default": "Text for column 1"
+          "id": "column_1_text_1",
+          "label": "Ratings",
+          "default": "4.8"
         },
         {
           "type": "range",
           "id": "column_1_rating",
-          "label": "Column 1 rating",
+          "label": "Star Ratings",
           "default": 5,
           "min": 0,
           "max": 5,
@@ -338,9 +345,15 @@
         },
         {
           "type": "text",
+          "id": "column_1_text_2",
+          "label": "Based Reviews",
+          "default": "Based on 19,453 reviews"
+        },
+        {
+          "type": "text",
           "id": "column_2_text_1",
           "label": "Column 2 text 1",
-          "default": "Text for column 2, line 1"
+          "default": "CAFFFEINE AMOUNT"
         },
         {
           "type": "range",
@@ -353,9 +366,15 @@
         },
         {
           "type": "text",
+          "id": "column_2_ratings_1",
+          "label": "Column 2 ratings 1",
+          "default": "5"
+        },
+        {
+          "type": "text",
           "id": "column_2_text_2",
           "label": "Column 2 text 2",
-          "default": "Text for column 2, line 2"
+          "default": "CONVENIENCE"
         },
         {
           "type": "range",
@@ -368,9 +387,15 @@
         },
         {
           "type": "text",
+          "id": "column_2_ratings_2",
+          "label": "Column 2 ratings 2",
+          "default": "5"
+        },
+        {
+          "type": "text",
           "id": "column_2_text_3",
           "label": "Column 2 text 3",
-          "default": "Text for column 2, line 3"
+          "default": "EASY TO USE"
         },
         {
           "type": "range",
@@ -383,9 +408,15 @@
         },
         {
           "type": "text",
+          "id": "column_2_ratings_3",
+          "label": "Column 2 ratings 3",
+          "default": "5"
+        },
+        {
+          "type": "text",
           "id": "column_2_text_4",
           "label": "Column 2 text 4",
-          "default": "Text for column 2, line 4"
+          "default": "FLAVOR PROFILE"
         },
         {
           "type": "range",
@@ -398,9 +429,15 @@
         },
         {
           "type": "text",
+          "id": "column_2_ratings_4",
+          "label": "Column 2 ratings 4",
+          "default": "5"
+        },
+        {
+          "type": "text",
           "id": "column_2_text_5",
           "label": "Column 2 text 5",
-          "default": "Text for column 2, line 5"
+          "default": "VALUE FOR MONEY"
         },
         {
           "type": "range",
@@ -410,6 +447,12 @@
           "min": 0,
           "max": 5,
           "step": 1
+        },
+        {
+          "type": "text",
+          "id": "column_2_ratings_5",
+          "label": "Column 2 ratings 5",
+          "default": "5"
         }
       ]
     },
