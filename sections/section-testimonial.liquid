@@ -53,7 +53,11 @@
               >
                 {{ block.settings.text }}
               </div>
-            {%- when 'two_column_grid' -%}
+              {% assign rating_id = 'column_2_rating_' | append: id %}
+              {% assign rating = block.settings[rating_id] | round %}
+              {% assign text_id = 'column_2_text_' | append: id %}
+              {{ block.settings[text_id] }}
+            {% when 'two_column_grid' %}
               <div class="grid grid--2-col">
                 <div class="grid__item">
                   <p>{{ block.settings.column_1_text }}</p>
@@ -73,20 +77,22 @@
                   {% assign column_ids = '1,2,3,4,5' | split: ',' %}
                   {% for id in column_ids %}
                     <div class="ratings-block">
-                      {% assign rating = block.settings.column_2_rating_ | append: id | round %}
+                      {% assign rating_id = 'column_2_rating_' | append: id %}
+                      {% assign rating = block.settings[rating_id] | round %}
                       <div class="star-rating">
                         {% for i in (1..rating) %}
                           <span class="star rated">&#9733;</span>
                         {% endfor %}
                       </div>
                       <p class="ratings-paragraph">
-                        {{ block.settings.column_2_text_ | append: id }} (Rating:
-                        {{ block.settings.column_2_rating_ | append: id }})
+                        {% assign text_id = 'column_2_text_' | append: id %}
+                        {{ block.settings[text_id] }} (Rating: {{ rating }})
                       </p>
                     </div>
                   {% endfor %}
                 </div>
               </div>
+
             {%- when 'two_links' -%}
               <div>
                 <a href="{{ block.settings.link_1_url }}">
