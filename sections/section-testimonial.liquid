@@ -1,0 +1,453 @@
+{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+  <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
+    <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
+      <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'heading' -%}
+              <h2
+                class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.heading }}
+              </h2>
+            {%- when 'caption' -%}
+              <p
+                class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.caption | escape }}
+              </p>
+            {%- when 'text' -%}
+              <div
+                class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.text }}
+              </div>
+            {%- when 'two_column_grid' -%}
+              <div class="grid grid--2-col">
+                <div class="grid__item">
+                  <p>{{ block.settings.column_1_text }}</p>
+                  <div class="ratings-block">
+                    {% assign rating = block.settings.column_1_rating | round %}
+                    <div class="star-rating">
+                      {% for i in (1..rating) %}
+                        <span class="star rated">&#9733;</span>
+                      {% endfor %}
+                    </div>
+                    <p class="ratings-paragraph">
+                      {{ block.settings.column_1_text }} (Rating: {{ block.settings.column_1_rating }})
+                    </p>
+                  </div>
+                </div>
+                <div class="grid__item">
+                  {% assign column_ids = '1,2,3,4,5' | split: ',' %}
+                  {% for id in column_ids %}
+                    <div class="ratings-block">
+                      {% assign rating = block.settings.column_2_rating_ | append: id | round %}
+                      <div class="star-rating">
+                        {% for i in (1..rating) %}
+                          <span class="star rated">&#9733;</span>
+                        {% endfor %}
+                      </div>
+                      <p class="ratings-paragraph">
+                        {{ block.settings.column_2_text_ | append: id }} (Rating:
+                        {{ block.settings.column_2_rating_ | append: id }})
+                      </p>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {%- when 'two_links' -%}
+              <div>
+                <a href="{{ block.settings.link_1_url }}">
+                  {{ block.settings.link_1_text | escape }}
+                </a>
+                <a href="{{ block.settings.link_2_url }}">
+                  {{ block.settings.link_2_text | escape }}
+                </a>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Section Testimonial",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text.settings.desktop_content_position.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.rich-text.settings.desktop_content_position.label",
+      "info": "t:sections.rich-text.settings.desktop_content_position.info"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text.settings.content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text.settings.content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text.settings.content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.rich-text.settings.content_alignment.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    },
+    {
+      "type": "text",
+      "id": "column_1_text_1",
+      "label": "Column 1 text 1",
+      "default": "Default text"
+    },
+    {
+      "type": "range",
+      "id": "column_1_rating",
+      "label": "Column 1 rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "text",
+      "id": "column_1_text_2",
+      "label": "Column 1 text 2",
+      "default": "Default text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "t:sections.rich-text.blocks.caption.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "Add a tagline",
+          "label": "t:sections.rich-text.blocks.caption.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "subtitle",
+              "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__1.label"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__2.label"
+            }
+          ],
+          "default": "caption-with-letter-spacing",
+          "label": "t:sections.rich-text.blocks.caption.settings.text_style.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__1.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__2.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__3.label"
+            }
+          ],
+          "default": "medium",
+          "label": "t:sections.rich-text.blocks.caption.settings.caption_size.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+      ]
+    },
+    {
+      "type": "two_column_grid",
+      "name": "Two column grid",
+      "settings": [
+        {
+          "type": "text",
+          "id": "column_1_text",
+          "label": "Column 1 text",
+          "default": "Text for column 1"
+        },
+        {
+          "type": "range",
+          "id": "column_1_rating",
+          "label": "Column 1 rating",
+          "default": 5,
+          "min": 0,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "type": "text",
+          "id": "column_2_text_1",
+          "label": "Column 2 text 1",
+          "default": "Text for column 2, line 1"
+        },
+        {
+          "type": "range",
+          "id": "column_2_rating_1",
+          "label": "Column 2 rating 1",
+          "default": 5,
+          "min": 0,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "type": "text",
+          "id": "column_2_text_2",
+          "label": "Column 2 text 2",
+          "default": "Text for column 2, line 2"
+        },
+        {
+          "type": "range",
+          "id": "column_2_rating_2",
+          "label": "Column 2 rating 2",
+          "default": 5,
+          "min": 0,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "type": "text",
+          "id": "column_2_text_3",
+          "label": "Column 2 text 3",
+          "default": "Text for column 2, line 3"
+        },
+        {
+          "type": "range",
+          "id": "column_2_rating_3",
+          "label": "Column 2 rating 3",
+          "default": 5,
+          "min": 0,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "type": "text",
+          "id": "column_2_text_4",
+          "label": "Column 2 text 4",
+          "default": "Text for column 2, line 4"
+        },
+        {
+          "type": "range",
+          "id": "column_2_rating_4",
+          "label": "Column 2 rating 4",
+          "default": 5,
+          "min": 0,
+          "max": 5,
+          "step": 1
+        },
+        {
+          "type": "text",
+          "id": "column_2_text_5",
+          "label": "Column 2 text 5",
+          "default": "Text for column 2, line 5"
+        },
+        {
+          "type": "range",
+          "id": "column_2_rating_5",
+          "label": "Column 2 rating 5",
+          "default": 5,
+          "min": 0,
+          "max": 5,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "type": "two_links",
+      "name": "Two links",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link_1_url",
+          "label": "Link 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_1_text",
+          "label": "Link 1 text",
+          "default": "Video Reviews"
+        },
+        {
+          "type": "url",
+          "id": "link_2_url",
+          "label": "Link 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_2_text",
+          "label": "Link 2 text",
+          "default": "Written Reviews"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Testimonial",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
