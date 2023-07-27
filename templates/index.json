@@ -458,6 +458,9 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "section_benefits": {
+      "type": "section-benefits"
     }
   },
   "order": [
@@ -467,6 +470,7 @@
     "section_solution",
     "section_social_proof",
     "section_offer",
-    "section_faq"
+    "section_faq",
+    "section_benefits"
   ]
 }
