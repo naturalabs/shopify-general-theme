@@ -294,6 +294,55 @@
         "padding_bottom": 36
       }
     },
+    "section_competitor": {
+      "type": "section-competitor",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "table_row": {
+          "type": "table_row",
+          "settings": {
+            "column_1": "Fast, Easy, and Convenient",
+            "column_2": "check",
+            "column_3": "cross",
+            "column_4": "cross"
+          }
+        },
+        "text_row": {
+          "type": "text_row",
+          "settings": {
+            "text_column_1": "Amount of Servings",
+            "text_column_2": "30 servings",
+            "text_column_3": "1 serving",
+            "text_column_4": "1 serving"
+          }
+        }
+      },
+      "block_order": ["heading", "text", "table_row", "text_row"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "heading_1": "",
+        "heading_2": "",
+        "heading_3": "PODS",
+        "heading_4": "INSTANT"
+      }
+    },
     "section_social_proof": {
       "type": "section-social-proof",
       "blocks": {
@@ -304,6 +353,7 @@
             "title": "Delicious Coffee",
             "text": "<p>“I love how convenient it is, and how is makesthe perfect ice coffee!!’</p>",
             "customer": "Jenifer V.",
+            "verified_buyer": "Verified Buyer",
             "link_label": "",
             "link": ""
           }
@@ -315,6 +365,7 @@
             "title": "Easy To Make",
             "text": "<p>“To say I am Obsessed with all these coffees isan understatement. I have limited time inmorning and it so easy and fast to prepare, andthe taste is amazing !!!”</p>",
             "customer": "Celeste O.",
+            "verified_buyer": "Verified Buyer",
             "link_label": "",
             "link": ""
           }
@@ -326,6 +377,7 @@
             "title": "Quick & Easy",
             "text": "<p>“Javy is so easy and do good! I’ve been makingmy own iced coffees at home for awhile, butthis is the best yet!”</p>",
             "customer": "Ann L.",
+            "verified_buyer": "Verified Buyer",
             "link_label": "",
             "link": ""
           }
@@ -459,8 +511,67 @@
         "padding_bottom": 36
       }
     },
-    "section_benefits": {
-      "type": "section-benefits"
+    "section_testimonial": {
+      "type": "section-testimonial",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "column_row": {
+          "type": "two_column_grid",
+          "settings": {
+            "column_1_text_1": "4.8",
+            "column_1_rating": 4,
+            "column_1_text_2": "Based on 19,453 reviews",
+            "column_2_text_1": "CAFFEINE AMOUNT",
+            "column_2_rating_1": 4,
+            "column_2_ratings_1": "5",
+            "column_2_text_2": "CONVENIENCE",
+            "column_2_rating_2": 5,
+            "column_2_ratings_2": "5",
+            "column_2_text_3": "EASY TO USE",
+            "column_2_rating_3": 5,
+            "column_2_ratings_3": "5",
+            "column_2_text_4": "FLAVOR PROFILE",
+            "column_2_rating_4": 5,
+            "column_2_ratings_4": "5",
+            "column_2_text_5": "VALUE FOR MONEY",
+            "column_2_rating_5": 5,
+            "column_2_ratings_5": "5"
+          }
+        },
+        "links": {
+          "type": "two_links",
+          "settings": {
+            "link_1_url": "",
+            "link_1_text": "Video Reviews",
+            "link_2_url": "",
+            "link_2_text": "Written Reviews"
+          }
+        }
+      },
+      "block_order": ["heading", "text", "column_row", "links"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "column_1_text_1": "Default text",
+        "column_1_rating": 3,
+        "column_1_text_2": "Default text"
+      }
     }
   },
   "order": [
@@ -468,9 +579,10 @@
     "section_brag_bars",
     "section_problem",
     "section_solution",
+    "section_competitor",
     "section_social_proof",
     "section_offer",
     "section_faq",
-    "section_benefits"
+    "section_testimonial"
   ]
 }
