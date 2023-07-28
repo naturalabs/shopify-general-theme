@@ -294,6 +294,70 @@
         "padding_bottom": 36
       }
     },
+    "section_benefits": {
+      "type": "section-benefits",
+      "blocks": {
+        "template--19526944653630__ff311b4e-76e3-40be-b381-d88043279a6f-column-1": {
+          "type": "column",
+          "settings": {
+            "title-1": "Egestas elit dui scelerisque",
+            "text-1": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
+            "title-2": "Id eros pellentesque facilisi",
+            "text-2": "Id eros pellentesque facilisi id mollis faucibus commodo enim.",
+            "title-3": "Nunc, pellentesque velit",
+            "text-3": "Nunc, pellentesque velit malesuada non massa arcu."
+          }
+        },
+        "template--19526944653630__ff311b4e-76e3-40be-b381-d88043279a6f-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/center-placeholder.svg",
+            "title-1": "",
+            "text-1": "",
+            "title-2": "",
+            "text-2": "",
+            "title-3": "",
+            "text-3": ""
+          }
+        },
+        "template--19526944653630__ff311b4e-76e3-40be-b381-d88043279a6f-column-3": {
+          "type": "column",
+          "settings": {
+            "title-1": "Egestas elit dui scelerisque",
+            "text-1": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
+            "title-2": "Id eros pellentesque facilisi",
+            "text-2": "Id eros pellentesque facilisi id mollis faucibus commodo enim.",
+            "title-3": "Nunc, pellentesque velit",
+            "text-3": "Nunc, pellentesque velit malesuada non massa arcu."
+          }
+        }
+      },
+      "block_order": [
+        "template--19526944653630__ff311b4e-76e3-40be-b381-d88043279a6f-column-1",
+        "template--19526944653630__ff311b4e-76e3-40be-b381-d88043279a6f-column-2",
+        "template--19526944653630__ff311b4e-76e3-40be-b381-d88043279a6f-column-3"
+      ],
+      "settings": {
+        "heading": "Talk about your brand",
+        "heading_size": "h1",
+        "caption": "Add a tagline",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "content_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "section_competitor": {
       "type": "section-competitor",
       "blocks": {
@@ -315,25 +379,114 @@
           "settings": {
             "column_1": "Fast, Easy, and Convenient",
             "column_2": "check",
+            "column_2_text": "Default text",
             "column_3": "cross",
-            "column_4": "cross"
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
           }
         },
-        "text_row": {
-          "type": "text_row",
+        "fa5cbb51-906a-4cdf-9ed8-f780daf69c45": {
+          "type": "table_row",
           "settings": {
-            "text_column_1": "Amount of Servings",
-            "text_column_2": "30 servings",
-            "text_column_3": "1 serving",
-            "text_column_4": "1 serving"
+            "column_1": "Supports and Educate Farmers",
+            "column_2": "check",
+            "column_2_text": "Default text",
+            "column_3": "cross",
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
+          }
+        },
+        "02f83a60-48a0-439f-9add-dc6f666a8d0d": {
+          "type": "table_row",
+          "settings": {
+            "column_1": "Fast, Easy, and Convenient",
+            "column_2": "check",
+            "column_2_text": "Default text",
+            "column_3": "cross",
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
+          }
+        },
+        "c144cef4-9859-4fba-ab94-86467098766e": {
+          "type": "table_row",
+          "settings": {
+            "column_1": "Fast, Easy, and Convenient",
+            "column_2": "check",
+            "column_2_text": "Default text",
+            "column_3": "cross",
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
+          }
+        },
+        "063fe056-6c08-4fbf-8e58-2fcc855ffa3f": {
+          "type": "table_row",
+          "settings": {
+            "column_1": "Fast, Easy, and Convenient",
+            "column_2": "check",
+            "column_2_text": "Default text",
+            "column_3": "cross",
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
+          }
+        },
+        "3113f261-aab5-4f6f-9c03-72d918801a40": {
+          "type": "table_row",
+          "settings": {
+            "column_1": "Fast, Easy, and Convenient",
+            "column_2": "check",
+            "column_2_text": "Default text",
+            "column_3": "cross",
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
+          }
+        },
+        "f58a88f6-cad8-404c-89e9-d0baec770275": {
+          "type": "table_row",
+          "settings": {
+            "column_1": "Fast, Easy, and Convenient",
+            "column_2": "check",
+            "column_2_text": "Default text",
+            "column_3": "cross",
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
+          }
+        },
+        "9206c381-1762-411c-97ea-0ace564693e2": {
+          "type": "table_row",
+          "settings": {
+            "column_1": "Fast, Easy, and Convenient",
+            "column_2": "check",
+            "column_2_text": "Default text",
+            "column_3": "cross",
+            "column_3_text": "Default text",
+            "column_4": "cross",
+            "column_4_text": "Default text"
           }
         }
       },
-      "block_order": ["heading", "text", "table_row", "text_row"],
+      "block_order": [
+        "heading",
+        "text",
+        "table_row",
+        "fa5cbb51-906a-4cdf-9ed8-f780daf69c45",
+        "02f83a60-48a0-439f-9add-dc6f666a8d0d",
+        "c144cef4-9859-4fba-ab94-86467098766e",
+        "063fe056-6c08-4fbf-8e58-2fcc855ffa3f",
+        "3113f261-aab5-4f6f-9c03-72d918801a40",
+        "f58a88f6-cad8-404c-89e9-d0baec770275",
+        "9206c381-1762-411c-97ea-0ace564693e2"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "",
+        "color_scheme": "background-2",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52,
@@ -530,24 +683,19 @@
         "column_row": {
           "type": "two_column_grid",
           "settings": {
-            "column_1_text_1": "4.8",
+            "ratings": "4.8",
             "column_1_rating": 5,
-            "column_1_text_2": "Based on 19,453 reviews",
-            "column_2_text_1": "CAFFEINE AMOUNT",
+            "reviews": "Based on 19,453 reviews",
+            "column_2_text_1": "caffeine amount",
             "column_2_rating_1": 4.5,
-            "column_2_ratings_1": "5",
-            "column_2_text_2": "CONVENIENCE",
+            "column_2_text_2": "convenience",
             "column_2_rating_2": 4.5,
-            "column_2_ratings_2": "5",
             "column_2_text_3": "EASY TO USE",
             "column_2_rating_3": 4.5,
-            "column_2_ratings_3": "5",
             "column_2_text_4": "FLAVOR PROFILE",
             "column_2_rating_4": 4.5,
-            "column_2_ratings_4": "5",
             "column_2_text_5": "VALUE FOR MONEY",
-            "column_2_rating_5": 4.5,
-            "column_2_ratings_5": "5"
+            "column_2_rating_5": 4.5
           }
         },
         "links": {
@@ -579,6 +727,7 @@
     "section_brag_bars",
     "section_problem",
     "section_solution",
+    "section_benefits",
     "section_competitor",
     "section_social_proof",
     "section_offer",

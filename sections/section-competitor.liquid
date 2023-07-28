@@ -15,13 +15,78 @@
 {%- endstyle -%}
 <style>
   .table-container table {
-    margin-inline: auto;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  td {
+    border: none; /* Removes border around each cell */
+  }
+
+  .blue {
+    background-color: #0f62fe;
+    color: white;
+    border: none; /* Removes border from blue cells */
+    z-index: 2;
+    position: relative;
+  }
+  tr:nth-of-type(2n) td.blue {
+    background: rgba(15, 99, 254, 0.827);
+  }
+
+  .top-round {
+    border-top-left-radius: 10px; /* top left corner */
+    border-top-right-radius: 10px; /* top right corner */
+  }
+
+  .bottom-round {
+    border-bottom-left-radius: 10px; /* bottom left corner */
+    border-bottom-right-radius: 10px; /* top right corner */
+  }
+  .bg-none {
+    background-color: red;
+  }
+  table {
+    border-collapse: collapse;
+    width: min(95%, 1020px);
+  }
+
+  table:not([class]) {
+    box-shadow: none;
+  }
+  table:not([class]) td,
+  table:not([class]) th {
+    border: none;
+  }
+  table td:first-child,
+  table th:first-child {
+    width: 40%;
+    text-align: left;
+  }
+  table td:nth-child(2),
+  table th:nth-child(2) {
+    width: 20%;
+  }
+  table td:nth-child(3),
+  table th:nth-child(3),
+  table td:nth-child(4),
+  table th:nth-child(4) {
+    width: 15%;
+  }
+  tr {
+    border-bottom: 1px solid #cbcbcb;
+  }
+
+  tr:last-child,
+  tr:nth-child(8) {
+    border-bottom: none;
   }
 </style>
+
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
   <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
     <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
-      <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+      <div class=" {{ section.settings.content_alignment }}">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
@@ -59,46 +124,73 @@
               </div>
           {%- endcase -%}
         {%- endfor -%}
-        <div class="table-container">
+        <div
+          class="table-container {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {{ block.shopify_attributes }}
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
           <table>
-            <thead>
+            <thead class="color-{{ section.settings.color_scheme }}">
               <tr>
-                <th>{{ section.settings.heading_1 }}</th>
-                <th>{{ section.settings.heading_2 }}</th>
-                <th>{{ section.settings.heading_3 }}</th>
-                <th>{{ section.settings.heading_4 }}</th>
+                <td>{{ section.settings.heading_1 }}</td>
+                <td class="blue top-round" style="background: rgba(15, 99, 254, 0.827)">
+                  {{ section.settings.heading_2 }}
+                </td>
+                <td>
+                  {{ section.settings.heading_3 }}
+                </td>
+                <td>
+                  {{ section.settings.heading_4 }}
+                </td>
               </tr>
             </thead>
             <tbody>
               {% for block in section.blocks %}
-                {% if block.type == 'text_row' %}
-                  {% if block.settings.text_column_1 != blank
-                    or block.settings.text_column_2 != blank
-                    or block.settings.text_column_3 != blank
-                    or block.settings.text_column_4 != blank
-                  %}
-                    <tr>
-                      <td>{{ block.settings.text_column_1 }}</td>
-                      <td>{{ block.settings.text_column_2 }}</td>
-                      <td>{{ block.settings.text_column_3 }}</td>
-                      <td>{{ block.settings.text_column_4 }}</td>
-                    </tr>
-                  {% endif %}
-                {% else %}
-                  {% if block.settings.column_1 != blank
-                    or block.settings.column_2 != blank
-                    or block.settings.column_3 != blank
-                    or block.settings.column_4 != blank
-                  %}
-                    <tr>
-                      <td>{{ block.settings.column_1 }}</td>
-                      <td>{{ block.settings.column_2 }}</td>
-                      <td>{{ block.settings.column_3 }}</td>
-                      <td>{{ block.settings.column_4 }}</td>
-                    </tr>
-                  {% endif %}
+                {% if block.type == 'table_row' %}
+                  <tr>
+                    <td>{{ block.settings.column_1 }}</td>
+                    <td class="blue">
+                      {% case block.settings.column_2 -%}
+                        {%- when 'check' -%}
+                          {%- render 'icon-comp-check' -%}
+                        {%- when 'cross' -%}
+                          {%- render 'icon-comp-cross' -%}
+                        {%- when 'text' -%}
+                          {{- block.settings.column_2_text -}}
+                      {%- endcase %}
+                    </td>
+                    <td>
+                      {% case block.settings.column_3 -%}
+                        {%- when 'check' -%}
+                          {%- render 'icon-comp-check' -%}
+                        {%- when 'cross' -%}
+                          {%- render 'icon-comp-cross' -%}
+                        {%- when 'text' -%}
+                          {{- block.settings.column_3_text -}}
+                      {%- endcase %}
+                    </td>
+                    <td>
+                      {% case block.settings.column_4 -%}
+                        {%- when 'check' -%}
+                          {%- render 'icon-comp-check' -%}
+                        {%- when 'cross' -%}
+                          {%- render 'icon-comp-cross' -%}
+                        {%- when 'text' -%}
+                          {{- block.settings.column_4_text -}}
+                      {%- endcase %}
+                    </td>
+                  </tr>
                 {% endif %}
               {% endfor %}
+              <tr class="color-{{ section.settings.color_scheme }}">
+                <td></td>
+                <td class="blue bottom-round"></td>
+                <td></td>
+                <td></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -332,9 +424,16 @@
           "label": "Column 2 select",
           "options": [
             { "value": "check", "label": "Check" },
-            { "value": "cross", "label": "Cross" }
+            { "value": "cross", "label": "Cross" },
+            { "value": "text", "label": "Text" }
           ],
           "default": "check"
+        },
+        {
+          "type": "text",
+          "id": "column_2_text",
+          "label": "Column 2 text",
+          "default": "Default text"
         },
         {
           "type": "select",
@@ -342,9 +441,16 @@
           "label": "Column 3 select",
           "options": [
             { "value": "check", "label": "Check" },
-            { "value": "cross", "label": "Cross" }
+            { "value": "cross", "label": "Cross" },
+            { "value": "text", "label": "Text" }
           ],
           "default": "cross"
+        },
+        {
+          "type": "text",
+          "id": "column_3_text",
+          "label": "Column 3 text",
+          "default": "Default text"
         },
         {
           "type": "select",
@@ -352,39 +458,16 @@
           "label": "Column 4 select",
           "options": [
             { "value": "check", "label": "Check" },
-            { "value": "cross", "label": "Cross" }
+            { "value": "cross", "label": "Cross" },
+            { "value": "text", "label": "Text" }
           ],
           "default": "cross"
-        }
-      ]
-    },
-    {
-      "type": "text_row",
-      "name": "Text row",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text_column_1",
-          "label": "Text Column 1",
-          "default": "Amount of Servings"
         },
         {
           "type": "text",
-          "id": "text_column_2",
-          "label": "Text Column 2",
-          "default": "30 servings"
-        },
-        {
-          "type": "text",
-          "id": "text_column_3",
-          "label": "Text Column 3",
-          "default": "1 serving"
-        },
-        {
-          "type": "text",
-          "id": "text_column_4",
-          "label": "Text Column 4",
-          "default": "1 serving"
+          "id": "column_4_text",
+          "label": "Column 4 text",
+          "default": "Default text"
         }
       ]
     }
@@ -401,9 +484,6 @@
         },
         {
           "type": "table_row"
-        },
-        {
-          "type": "text_row"
         }
       ]
     }

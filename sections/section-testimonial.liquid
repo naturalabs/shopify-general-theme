@@ -57,9 +57,11 @@
     line-height: 48px; /* 114.286% */
     letter-spacing: -4.8px;
   }
-  .testimonial-links a {
+
+  .link {
+    text-decoration: none;
     color: #2a2552;
-    font-family: Inter;
+    font-family: inherit;
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
@@ -168,11 +170,11 @@
               </div>
 
             {%- when 'two_links' -%}
-              <div class="testimonial-links link">
-                <a href="{{ block.settings.link_1_url }}">
+              <div class="testimonial-links">
+                <a class="link--text link" href="{{ block.settings.link_1_url }}" style="margin-right:33px">
                   {{ block.settings.link_1_text | escape }}
                 </a>
-                <a href="{{ block.settings.link_2_url }}">
+                <a class="link--text link" href="{{ block.settings.link_2_url }}">
                   {{ block.settings.link_2_text | escape }}
                 </a>
               </div>
