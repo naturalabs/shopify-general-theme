@@ -59,17 +59,25 @@
               {{ block.settings[text_id] }}
             {% when 'two_column_grid' %}
               <div class="grid grid--2-col">
-                <div class="grid__item">
-                  <p>{{ block.settings.column_1_text_1 }}</p>
+                <div class="grid__item reviews">
+                  <p>{{ block.settings.ratings }}</p>
                   <div class="ratings-block">
-                    {% assign rating = block.settings.column_1_rating | round %}
+                    {% assign whole_rating = block.settings.column_1_rating | floor %}
+                    {% assign has_half_star = block.settings.column_1_rating | modulo: 1 %}
+                    {% assign total_stars = whole_rating %}
                     <div class="star-rating">
-                      {% for i in (1..rating) %}
-                        <span class="star rated">&#9733;</span>
-                      {% endfor %}
+                      {% liquid
+                        for i in (1..whole_rating)
+                          render 'icon-star-full'
+                        endfor
+                      %}
+                      {% if has_half_star > 0 %}
+                        {%- render 'icon-star-half' -%}
+                        {% assign total_stars = total_stars | plus: 1 %}
+                      {% endif %}
                     </div>
                     <p class="ratings-paragraph">
-                      {{ block.settings.column_1_text_2 }}
+                      {{ block.settings.reviews }}
                     </p>
                   </div>
                 </div>
@@ -78,22 +86,28 @@
                   {% for id in column_ids %}
                     <div class="ratings-block">
                       {% assign rating_id = 'column_2_rating_' | append: id %}
-                      {% assign rating = block.settings[rating_id] | round %}
-                      <p class="ratings-paragraph">
+                      {% assign rating = block.settings[rating_id] | floor %}
+                      {% assign has_half_star = block.settings[rating_id] | modulo: 1 %}
+                      {% assign total_stars = rating %}
+                      <p>
                         {% assign text_id = 'column_2_text_' | append: id %}
                         {{ block.settings[text_id] }}
                       </p>
-
-                      <div class="ratings-block">
+                      <div class="rating-block">
                         <div class="star-rating">
-                          {% for i in (1..rating) %}
-                            <span class="star rated">&#9733;</span>
-                          {% endfor %}
+                          {% liquid
+                            for i in (1..rating)
+                              render 'icon-star-full'
+                            endfor
+                          %}
+                          {% if has_half_star > 0 %}
+                            {%- render 'icon-star-half' -%}
+                            {% assign total_stars = total_stars | plus: 1 %}
+                          {% endif %}
                         </div>
-                        <span>
-                          {% assign text_id = 'column_2_rating_' | append: id %}
-                          {{ block.settings[text_id] }}
-                        </span>
+                        <p class="ratings-paragraph">
+                          {{ block.settings[rating_id] }}
+                        </p>
                       </div>
                     </div>
                   {% endfor %}
@@ -330,30 +344,30 @@
       "settings": [
         {
           "type": "text",
-          "id": "column_1_text_1",
-          "label": "Ratings",
+          "id": "ratings",
+          "label": "Column 1 text",
           "default": "4.8"
         },
         {
           "type": "range",
           "id": "column_1_rating",
-          "label": "Star Ratings",
+          "label": "Column 1 rating",
           "default": 5,
           "min": 0,
           "max": 5,
-          "step": 1
+          "step": 0.5
         },
         {
           "type": "text",
-          "id": "column_1_text_2",
-          "label": "Based Reviews",
+          "id": "reviews",
+          "label": "Column 1 text",
           "default": "Based on 19,453 reviews"
         },
         {
           "type": "text",
           "id": "column_2_text_1",
           "label": "Column 2 text 1",
-          "default": "CAFFFEINE AMOUNT"
+          "default": "Text for column 2, line 1"
         },
         {
           "type": "range",
@@ -362,19 +376,13 @@
           "default": 5,
           "min": 0,
           "max": 5,
-          "step": 1
-        },
-        {
-          "type": "text",
-          "id": "column_2_ratings_1",
-          "label": "Column 2 ratings 1",
-          "default": "5"
+          "step": 0.5
         },
         {
           "type": "text",
           "id": "column_2_text_2",
           "label": "Column 2 text 2",
-          "default": "CONVENIENCE"
+          "default": "Text for column 2, line 2"
         },
         {
           "type": "range",
@@ -383,19 +391,13 @@
           "default": 5,
           "min": 0,
           "max": 5,
-          "step": 1
-        },
-        {
-          "type": "text",
-          "id": "column_2_ratings_2",
-          "label": "Column 2 ratings 2",
-          "default": "5"
+          "step": 0.5
         },
         {
           "type": "text",
           "id": "column_2_text_3",
           "label": "Column 2 text 3",
-          "default": "EASY TO USE"
+          "default": "Text for column 2, line 3"
         },
         {
           "type": "range",
@@ -404,19 +406,13 @@
           "default": 5,
           "min": 0,
           "max": 5,
-          "step": 1
-        },
-        {
-          "type": "text",
-          "id": "column_2_ratings_3",
-          "label": "Column 2 ratings 3",
-          "default": "5"
+          "step": 0.5
         },
         {
           "type": "text",
           "id": "column_2_text_4",
           "label": "Column 2 text 4",
-          "default": "FLAVOR PROFILE"
+          "default": "Text for column 2, line 4"
         },
         {
           "type": "range",
@@ -425,19 +421,13 @@
           "default": 5,
           "min": 0,
           "max": 5,
-          "step": 1
-        },
-        {
-          "type": "text",
-          "id": "column_2_ratings_4",
-          "label": "Column 2 ratings 4",
-          "default": "5"
+          "step": 0.5
         },
         {
           "type": "text",
           "id": "column_2_text_5",
           "label": "Column 2 text 5",
-          "default": "VALUE FOR MONEY"
+          "default": "Text for column 2, line 5"
         },
         {
           "type": "range",
@@ -446,13 +436,7 @@
           "default": 5,
           "min": 0,
           "max": 5,
-          "step": 1
-        },
-        {
-          "type": "text",
-          "id": "column_2_ratings_5",
-          "label": "Column 2 ratings 5",
-          "default": "5"
+          "step": 0.5
         }
       ]
     },
