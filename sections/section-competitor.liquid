@@ -77,9 +77,12 @@
     border-bottom: 1px solid #cbcbcb;
   }
 
-  tr:last-child,
-  tr:nth-child(8) {
+  tbody tr:nth-last-child(2),
+  thead tr {
     border-bottom: none;
+  }
+  tbody tr:first-child {
+    border-top: none;
   }
 </style>
 
@@ -185,7 +188,7 @@
                   </tr>
                 {% endif %}
               {% endfor %}
-              <tr class="color-{{ section.settings.color_scheme }}">
+              <tr class="color-{{ section.settings.color_scheme }} last">
                 <td></td>
                 <td class="blue bottom-round"></td>
                 <td></td>
