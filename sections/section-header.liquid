@@ -50,6 +50,16 @@
   .button span {
     padding-inline: 16px;
   }
+  .header-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 22px;
+  }
+  .header-grid__items {
+    display: flex;
+    align-items: center;
+  }
 </style>
 {% assign scheme1 = settings.color_schemes | first %}
 {% comment %} fullwidth background {% endcomment %}
@@ -152,9 +162,32 @@
                     {%- render 'icon-right' -%}
                   </a>
                 {%- endif -%}
-              {%- when 'trust-badge' -%}
-                <div class="trust-badge">
-                  <h1>Trust Badge</h1>
+              {%- when 'icon-with-text-grid' -%}
+                <div class="header-grid">
+                  <div class="header-grid__items">
+                    {% if block.settings['icon-1'] != blank %}
+                      {{ block.settings['icon-1'] | image_url: '50x' }}
+                    {% else %}
+                      {% render 'icon-placeholder' %}
+                    {% endif %}
+                    <p>{{ block.settings['text-1'] }}</p>
+                  </div>
+                  <div class="header-grid__items">
+                    {% if block.settings['icon-2'] != blank %}
+                      {{ block.settings['icon-2'] | image_url: '50x' }}
+                    {% else %}
+                      {% render 'icon-placeholder' %}
+                    {% endif %}
+                    <p>{{ block.settings['text-2'] }}</p>
+                  </div>
+                  <div class="header-grid__items">
+                    {% if block.settings['icon-3'] != blank %}
+                      {{ block.settings['icon-3'] | image_url: '50x' }}
+                    {% else %}
+                      {% render 'icon-placeholder' %}
+                    {% endif %}
+                    <p>{{ block.settings['text-3'] }}</p>
+                  </div>
                 </div>
             {%- endcase -%}
           {%- endfor -%}
@@ -547,10 +580,44 @@
       ]
     },
     {
-      "type": "trust-badge",
-      "name": "Trust Badge",
-      "limit": 1,
-      "settings": []
+      "type": "icon-with-text-grid",
+      "name": "Icon with text grid",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon-1",
+          "label": "Choose an icon 1"
+        },
+        {
+          "type": "text",
+          "id": "text-1",
+          "label": "Enter text for the column",
+          "default": "Default"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon-2",
+          "label": "Choose an icon"
+        },
+        {
+          "type": "text",
+          "id": "text-2",
+          "label": "Enter text for the column",
+          "default": "Default"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon-3",
+          "label": "Choose an icon"
+        },
+        {
+          "type": "text",
+          "id": "text-3",
+          "label": "Enter text for the column",
+          "default": "Default"
+        }
+      ]
     }
   ],
   "presets": [
@@ -585,7 +652,7 @@
           "type": "button"
         },
         {
-          "type": "trust-badge"
+          "type": "icon-with-text-grid"
         }
       ]
     }
