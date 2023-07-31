@@ -41,6 +41,18 @@
   .field__button {
     width: auto;
   }
+  h2.footer-header {
+    margin: 0 0 48px;
+  }
+  .footer-page-width {
+    max-width: 900px;
+  }
+  .footer-block__newsletter {
+    margin-bottom: 16px;
+  }
+  .input-wrapper {
+    width: 900px;
+  }
 </style>
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- liquid
@@ -64,7 +76,7 @@
     or section.settings.enable_follow_on_shop
   -%}
     {%- unless only_empty_brand -%}
-      <div class="footer__content-top page-width">
+      <div class="footer__content-top footer-page-width page-width">
         {%- if section.blocks.size > 0 -%}
           <div class="footer__blocks-wrapper {{ footer_grid_class }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {%- for block in section.blocks -%}
@@ -76,10 +88,6 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-                {%- endif -%}
-
                 {%- case block.type -%}
                   {%- when 'caption' -%}
                     <p
@@ -88,12 +96,12 @@
                     >
                       {{ block.settings.caption | escape }}
                     </p>
-                  {%- when 'heading' -%}
+                  {%- when 'footer_heading' -%}
                     <h2
-                      class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                      class="footer-header image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
                       {{ block.shopify_attributes }}
                     >
-                      {{ block.settings.header }}
+                      {{ block.settings.heading }}
                     </h2>
                   {%- when 'footer_text' -%}
                     <div
@@ -214,7 +222,7 @@
                         {% elsif form.posted_successfully? %}
                           aria-describedby="ContactFooter-success"
                         {% endif %}
-                        placeholder="Enter your email to get the latest news..."
+                        placeholder="Enter your email..."
                         required
                       >
                       <label class="field__label" for="NewsletterForm--{{ section.id }}"
