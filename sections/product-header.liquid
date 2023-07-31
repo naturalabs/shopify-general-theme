@@ -17,9 +17,6 @@
   .section {
     background-color: var(--gradient-background);
   }
-  .ratings-block {
-    font-size: 20px;
-  }
 
   .star-rating {
     display: inline-block;
@@ -33,7 +30,8 @@
   .rated {
     color: #f8ce0b;
   }
-  .ratings-block {
+  .product-ratings-block {
+    font-size: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -105,7 +103,7 @@
             {% case block.type %}
                 {% comment %} ratings {% endcomment %}
               {%- when 'ratings' -%}
-                <div class="ratings-block">
+                <div class="ptoduct-ratings-block">
                   {% assign rating = block.settings.ratings | round %}
                   <div class="star-rating">
                     {% for i in (1..rating) %}

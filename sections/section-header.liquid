@@ -37,11 +37,7 @@
   .rated {
     color: #f8ce0b;
   }
-  .ratings-block {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+
   .icon-text {
     display: flex;
     align-items: center;
@@ -59,6 +55,51 @@
   .header-grid__items {
     display: flex;
     align-items: center;
+  }
+  .ratings-block.mobile {
+    display: none;
+  }
+  .ratings-block.desktop,
+  .header-grid.desktop {
+    display: flex;
+    justify-content: center;
+  }
+  .section-header-button {
+    margin-bottom: 40px;
+  }
+  @media (max-width: 767px) {
+    .ratings-block.mobile,
+    .header-grid.mobile {
+      display: flex;
+      justify-content: center;
+    }
+    .header-grid.mobile {
+      max-width: 230px;
+      margin-inline: auto;
+    }
+    .ratings-block.desktop,
+    .header-grid.desktop {
+      display: none;
+    }
+    .image-with-text__media {
+      position: relative;
+    }
+
+    .ratings-block {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      /* additional styles for ratings block */
+    }
+
+    .header-grid {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      /* additional styles for icon-with-text-grid */
+    }
   }
 </style>
 {% assign scheme1 = settings.color_schemes | first %}
@@ -95,6 +136,50 @@
           {%- else -%}
             {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
+          <!-- Start of ratings block and icon-with-text-grid -->
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+                {% comment %} ratings {% endcomment %}
+              {%- when 'ratings' -%}
+                <div class="ratings-block mobile">
+                  {% assign rating = block.settings.ratings | round %}
+                  <div class="star-rating">
+                    {% for i in (1..rating) %}
+                      <span class="star rated">&#9733;</span>
+                    {% endfor %}
+                  </div>
+
+                  <p class="ratings-paragraph">
+                    {{ block.settings.paragraph_text | escape }}
+                  </p>
+                </div>
+              {%- when 'icon-with-text-grid' -%}
+                <div class="header-grid mobile">
+                  <div class="header-grid__items">
+                    {% if block.settings['icon-1'] != blank %}
+                      {{ block.settings['icon-1'] | image_url: '50x' }}
+                    {% else %}
+                      {% render 'icon-placeholder' %}
+                    {% endif %}
+                  </div>
+                  <div class="header-grid__items">
+                    {% if block.settings['icon-2'] != blank %}
+                      {{ block.settings['icon-2'] | image_url: '50x' }}
+                    {% else %}
+                      {% render 'icon-placeholder' %}
+                    {% endif %}
+                  </div>
+                  <div class="header-grid__items">
+                    {% if block.settings['icon-3'] != blank %}
+                      {{ block.settings['icon-3'] | image_url: '50x' }}
+                    {% else %}
+                      {% render 'icon-placeholder' %}
+                    {% endif %}
+                  </div>
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+          <!-- End of ratings block and icon-with-text-grid -->
         </div>
       </div>
       <div class="image-with-text__text-item grid__item">
@@ -106,12 +191,13 @@
             {% case block.type %}
                 {% comment %} ratings {% endcomment %}
               {%- when 'ratings' -%}
-                <div class="ratings-block">
+                <div class="ratings-block desktop">
                   {% assign rating = block.settings.ratings | round %}
                   <div class="star-rating">
                     {% for i in (1..rating) %}
                       <span class="star rated">&#9733;</span>
                     {% endfor %}
+                    t
                   </div>
 
                   <p class="ratings-paragraph">
@@ -152,7 +238,7 @@
                     {% else %}
                       href="{{ block.settings.button_link }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    class="section-header-button button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {%- render 'icon-left' -%}
@@ -163,7 +249,7 @@
                   </a>
                 {%- endif -%}
               {%- when 'icon-with-text-grid' -%}
-                <div class="header-grid">
+                <div class="header-grid desktop">
                   <div class="header-grid__items">
                     {% if block.settings['icon-1'] != blank %}
                       {{ block.settings['icon-1'] | image_url: '50x' }}
