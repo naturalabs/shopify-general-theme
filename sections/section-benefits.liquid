@@ -15,7 +15,15 @@
   }
 {%- endstyle -%}
 <style>
-  .section-benefits__card-info,
+  h2.section-benefits__heading {
+    margin-bottom: 0;
+  }
+  .section-benefits__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .section-benefits-wrapper {
     display: flex;
     flex-direction: column;
@@ -56,7 +64,7 @@
         {{ section.settings.caption | escape }}
       </p>
       <h2
-        class="rich-text__heading rte inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        class="section-benefits__heading rich-text__heading rte inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         {{ block.shopify_attributes }}
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
@@ -104,7 +112,10 @@
                 {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
                   {% assign spaced_image = true %}
                 {% endif %}
-                <div class="section-benefits-wrapper multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+                <div
+                  class="section-benefits-wrapper multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}"
+                  style="padding-top:0"
+                >
                   <div
                     class="media media--transparent media--{{ section.settings.image_ratio }}"
                     {% if section.settings.image_ratio == 'adapt' %}
@@ -143,7 +154,7 @@
                   </div>
                 </div>
               {%- endif -%}
-              <div class="multicolumn-card__info section-benefits__card-info">
+              <div class="section-benefits__card multicolumn-card__info section-benefits__card-info">
                 <div class="multicolumn-card__element">
                   {% comment %}
                     {%- if block.settings['icon-1'] != blank -%}
