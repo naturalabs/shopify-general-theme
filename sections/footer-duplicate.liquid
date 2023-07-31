@@ -38,8 +38,12 @@
     max-width: 600px;
     margin-inline: auto;
   }
-  .field__button {
-    width: auto;
+  .newsletter-form__button:not(:focus-visible):not(.focused) {
+    box-shadow: inherit;
+    background-color: inherit;
+    background: blue;
+    color: white;
+    padding: 10px;
   }
 </style>
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -210,44 +214,39 @@
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">
-                    <div class="input-wrapper">
-                      <input
-                        id="NewsletterForm--{{ section.id }}"
-                        type="email"
-                        name="contact[email]"
-                        class="field__input"
-                        value="{{ form.email }}"
-                        aria-required="true"
-                        autocorrect="off"
-                        autocapitalize="off"
-                        autocomplete="email"
-                        {% if form.errors %}
-                          autofocus
-                          aria-invalid="true"
-                          aria-describedby="ContactFooter-error"
-                        {% elsif form.posted_successfully? %}
-                          aria-describedby="ContactFooter-success"
-                        {% endif %}
-                        placeholder="Enter your email to get the latest news..."
-                        required
-                      >
-                      <label class="field__label" for="NewsletterForm--{{ section.id }}"
-                        >Enter your email to get the latest news...</label
-                      >
-                    </div>
-                    <div class="input-button-wrapper">
-                      <button
-                        type="submit"
-                        class=" button"
-                        name="commit"
-                        id="Subscribe"
-                        aria-label="{{ 'newsletter.button_label' | t }}"
-                      >
-                        Subscribe
-                      </button>
-                    </div>
+                    <input
+                      id="NewsletterForm--{{ section.id }}"
+                      type="email"
+                      name="contact[email]"
+                      class="field__input"
+                      value="{{ form.email }}"
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      autocomplete="email"
+                      {% if form.errors %}
+                        autofocus
+                        aria-invalid="true"
+                        aria-describedby="ContactFooter-error"
+                      {% elsif form.posted_successfully? %}
+                        aria-describedby="ContactFooter-success"
+                      {% endif %}
+                      placeholder="{{ 'newsletter.label' | t }}"
+                      required
+                    >
+                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                      {{ 'newsletter.label' | t }}
+                    </label>
+                    <button
+                      type="submit"
+                      class="newsletter-form__button field__button footer-input-button"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="{{ 'newsletter.button_label' | t }}"
+                    >
+                      Subscribe
+                    </button>
                   </div>
-
                   {%- if form.errors -%}
                     <small class="newsletter-form__message form__message" id="ContactFooter-error">
                       {%- render 'icon-error' -%}
