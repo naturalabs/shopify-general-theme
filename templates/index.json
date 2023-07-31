@@ -63,6 +63,14 @@
             "button_link": "",
             "button_style_secondary": false
           }
+        },
+        "e1f09b4f-f9e5-4b55-ac44-9cd79a4e5a84": {
+          "type": "icon-with-text-grid",
+          "settings": {
+            "text-1": "Default",
+            "text-2": "Default",
+            "text-3": "Default"
+          }
         }
       },
       "block_order": [
@@ -74,7 +82,8 @@
         "icon-text2",
         "icon-text3",
         "icon-text4",
-        "button"
+        "button",
+        "e1f09b4f-f9e5-4b55-ac44-9cd79a4e5a84"
       ],
       "settings": {
         "height": "adapt",
@@ -592,7 +601,7 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
-        "color_scheme": "",
+        "color_scheme": "background-2",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
@@ -723,6 +732,7 @@
     },
     "c9f622e0-5da7-4ea3-b4bd-d9c00313727a": {
       "type": "section-recommended",
+      "disabled": true,
       "blocks": {
         "template--19526944653630__c9f622e0-5da7-4ea3-b4bd-d9c00313727a-column-1": {
           "type": "column",
@@ -794,82 +804,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "8c039f6f-574c-4dbd-a953-13610f39ad50": {
-      "type": "section-features",
-      "blocks": {
-        "template--19526944653630__8c039f6f-574c-4dbd-a953-13610f39ad50-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "template--19526944653630__8c039f6f-574c-4dbd-a953-13610f39ad50-icon_text-1": {
-          "type": "icon_text",
-          "settings": {
-            "icon": "",
-            "text": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          }
-        },
-        "cda9f650-1932-4b29-9472-011922c8103d": {
-          "type": "icon_text",
-          "settings": {
-            "icon": "",
-            "text": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          }
-        },
-        "afbff43e-edc7-48d2-a703-263e7c8db527": {
-          "type": "icon_text",
-          "settings": {
-            "icon": "",
-            "text": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          }
-        },
-        "66d7ad7c-bfc5-41bb-896d-2a4cb650a44f": {
-          "type": "icon_text",
-          "settings": {
-            "icon": "",
-            "text": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          }
-        },
-        "5d65a884-c9b5-4322-8f0f-542d7a2e511c": {
-          "type": "icon_text",
-          "settings": {
-            "icon": "",
-            "text": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          }
-        },
-        "85d4687a-e3bf-4855-8e88-08e067219d2c": {
-          "type": "icon_text",
-          "settings": {
-            "icon": "",
-            "text": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          }
-        }
-      },
-      "block_order": [
-        "template--19526944653630__8c039f6f-574c-4dbd-a953-13610f39ad50-heading-1",
-        "template--19526944653630__8c039f6f-574c-4dbd-a953-13610f39ad50-icon_text-1",
-        "cda9f650-1932-4b29-9472-011922c8103d",
-        "afbff43e-edc7-48d2-a703-263e7c8db527",
-        "66d7ad7c-bfc5-41bb-896d-2a4cb650a44f",
-        "5d65a884-c9b5-4322-8f0f-542d7a2e511c",
-        "85d4687a-e3bf-4855-8e88-08e067219d2c"
-      ],
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -883,7 +817,6 @@
     "section_offer",
     "section_faq",
     "section_testimonial",
-    "c9f622e0-5da7-4ea3-b4bd-d9c00313727a",
-    "8c039f6f-574c-4dbd-a953-13610f39ad50"
+    "c9f622e0-5da7-4ea3-b4bd-d9c00313727a"
   ]
 }
