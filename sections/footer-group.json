@@ -4,11 +4,39 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "disabled": true,
+      "blocks": {
+        "d26fa2e1-10a3-4a00-9c81-1ea5e8ecb0f9": {
+          "type": "caption",
+          "settings": {
+            "caption": "CAPTION",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "427f9ce9-df5d-47e6-b963-00c551d82558": {
+          "type": "footer_heading",
+          "settings": {
+            "heading": "Bibendum amet at molestie mattis.",
+            "heading_size": "h1"
+          }
+        },
+        "24454318-a1a3-45ea-bfa3-ca098e6d57be": {
+          "type": "footer_text",
+          "settings": {
+            "text": "<p>Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut. Non, amet, aliquet scelerisque nullam sagittis, pulvinar.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "d26fa2e1-10a3-4a00-9c81-1ea5e8ecb0f9",
+        "427f9ce9-df5d-47e6-b963-00c551d82558",
+        "24454318-a1a3-45ea-bfa3-ca098e6d57be"
+      ],
       "settings": {
         "color_scheme": "background-1",
-        "newsletter_enable": false,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_enable": true,
+        "newsletter_heading": "",
         "enable_follow_on_shop": false,
         "show_social": false,
         "enable_country_selector": false,
