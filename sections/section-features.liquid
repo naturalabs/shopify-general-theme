@@ -83,7 +83,11 @@
               {%- when 'icon_text' -%}
                 <div class="icon-text-grid">
                   <div class="icon-text-grid__item">
-                    <i class="{{ block.settings.icon }}">icon</i>
+                    {%- if block.settings.icon != blank -%}
+                      <img src="{{ block.settings.icon | image_url }}" loading="lazy" width="48" height="48">
+                    {%- else -%}
+                      {%- render 'icon-benefits-1' -%}
+                    {%- endif -%}
                     <p>{{ block.settings.text }}</p>
                   </div>
                 </div>
@@ -344,11 +348,10 @@
       "name": "Icon and Text",
       "settings": [
         {
-          "type": "text",
+          "type": "image_picker",
           "id": "icon",
           "label": "Icon"
         },
-
         {
           "type": "text",
           "id": "text",
