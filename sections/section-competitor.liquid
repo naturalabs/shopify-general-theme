@@ -19,7 +19,18 @@
     background: rgba(255, 255, 255, 0.78);
     margin: 0 auto;
   }
-
+  h2.section-competitor__heading {
+    margin-bottom: 16px;
+  }
+  .section-competitor__richtext {
+    padding-bottom: 75px;
+  }
+  thead td {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 160% */
+  }
   td {
     border: none; /* Removes border around each cell */
   }
@@ -95,7 +106,7 @@
           {%- case block.type -%}
             {%- when 'heading' -%}
               <h2
-                class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="section-competitor__heading rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -117,7 +128,7 @@
               </p>
             {%- when 'text' -%}
               <div
-                class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="section-competitor__richtext rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
