@@ -20,9 +20,14 @@
     gap: 5%;
     align-items: center;
   }
+  .grid-testimonial {
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+  }
   @media (min-width: 750px) {
     .grid-testimonial {
       grid-template-columns: auto 1fr;
+      margin-bottom: 54px;
     }
   }
   .testimonial-ratings {
@@ -33,14 +38,10 @@
     display: flex;
     align-items: center;
     gap: 7px;
+    justify-content: center;
   }
 
   .reviews-block:nth-child(odd) > * {
-    border-bottom: 1px solid rgba(35, 42, 58, 0.07);
-  }
-
-  .reviews-block:nth-child(even) {
-    justify-content: space-between;
     border-bottom: 1px solid rgba(35, 42, 58, 0.07);
   }
 
@@ -66,6 +67,28 @@
     font-style: normal;
     font-weight: 500;
     line-height: 24px; /* 160% */
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+  .testimonial-ratings-block {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  @media (min-width: 750px) {
+    .hide-on-mobile {
+      display: block;
+    }
+    .reviews-block {
+      justify-content: flex-start;
+    }
+    .reviews-block:nth-child(even) {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(35, 42, 58, 0.07);
+    }
   }
 </style>
 
@@ -116,7 +139,7 @@
               <div class="grid-testimonial ">
                 <div class="testimonial-ratings">
                   <p class="ratings-text">{{ block.settings.ratings }}</p>
-                  <div class="ratings-block">
+                  <div class="testimonial-ratings-block">
                     {% assign whole_rating = block.settings.column_1_rating | floor %}
                     {% assign has_half_star = block.settings.column_1_rating | modulo: 1 %}
                     {% assign total_stars = whole_rating %}
@@ -139,7 +162,8 @@
                 <div class="testimonial-reviews">
                   {% assign column_ids = '1,2,3,4,5' | split: ',' %}
                   {% for id in column_ids %}
-                    <div class="reviews-block">
+                    {% assign even_id = forloop.index | modulo: 2 %}
+                    <div class="reviews-block {% if even_id == 0 %}hide-on-mobile{% endif %}">
                       {% assign rating_id = 'column_2_rating_' | append: id %}
                       {% assign rating = block.settings[rating_id] | floor %}
                       {% assign has_half_star = block.settings[rating_id] | modulo: 1 %}
@@ -148,7 +172,7 @@
                         {% assign text_id = 'column_2_text_' | append: id %}
                         {{ block.settings[text_id] | upcase }}
                       </p>
-                      <div class="ratings-block">
+                      <div class="testimonial-ratings-block">
                         <div class="star-rating">
                           {% liquid
                             for i in (1..rating)
