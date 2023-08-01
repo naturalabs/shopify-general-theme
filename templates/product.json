@@ -20,7 +20,7 @@
         "template--19636010418494__87f57103-adbb-4938-801e-7e4cc8016bd1-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/p>",
             "text_style": "body"
           }
         },
@@ -86,8 +86,8 @@
         "color_scheme": "",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "4f971edf-58a5-45e3-a8d7-d640c1740a7c": {
@@ -174,7 +174,7 @@
         "template--19636010418494__48e12fdf-6878-4d5a-a19e-d66762f82718-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/p>",
             "text_style": "body"
           }
         },
@@ -222,8 +222,8 @@
         "color_scheme": "background-1",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "2c3b424f-9536-4e3b-a450-00d414d58586": {
@@ -247,7 +247,7 @@
         "template--19636010418494__2c3b424f-9536-4e3b-a450-00d414d58586-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/p>",
             "text_style": "body"
           }
         },
@@ -295,8 +295,8 @@
         "color_scheme": "",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "e988a802-dadb-4bb7-8df9-e356aed9ed42": {
@@ -316,7 +316,7 @@
         "template--19636010418494__e988a802-dadb-4bb7-8df9-e356aed9ed42-column-2": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title-1": "",
             "text-1": "",
             "title-2": "",
@@ -359,8 +359,8 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "bde04181-3cb1-4af5-960d-f38bd4769636": {
@@ -429,8 +429,8 @@
         "color_scheme": "background-2",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "a0882572-d276-408d-8957-7fb179458de6": {
@@ -441,7 +441,7 @@
           "settings": {
             "ratings": 5,
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
             "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
@@ -453,7 +453,7 @@
           "settings": {
             "ratings": 5,
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
             "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
@@ -465,7 +465,7 @@
           "settings": {
             "ratings": 5,
             "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
             "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
@@ -497,9 +497,9 @@
         "template--19636010418494__57e33519-afac-496a-b98b-65d2b6d15631-column-1": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -508,9 +508,9 @@
         "template--19636010418494__57e33519-afac-496a-b98b-65d2b6d15631-column-2": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -519,9 +519,9 @@
         "template--19636010418494__57e33519-afac-496a-b98b-65d2b6d15631-column-3": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -530,9 +530,9 @@
         "template--19636010418494__57e33519-afac-496a-b98b-65d2b6d15631-column-4": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -561,8 +561,8 @@
         "color_scheme": "",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "73999df8-36cc-41b1-bffb-6094698851c6": {
@@ -622,8 +622,8 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },

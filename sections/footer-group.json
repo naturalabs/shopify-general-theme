@@ -23,7 +23,7 @@
         "24454318-a1a3-45ea-bfa3-ca098e6d57be": {
           "type": "footer_text",
           "settings": {
-            "text": "<p>Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut. Non, amet, aliquet scelerisque nullam sagittis, pulvinar.</p>",
+            "text": "<p>Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut. Non, amet, aliquet scelerisque nullam sagittis, pulvinar.<\/p>",
             "text_style": "body"
           }
         }
@@ -34,7 +34,7 @@
         "24454318-a1a3-45ea-bfa3-ca098e6d57be"
       ],
       "settings": {
-        "color_scheme": "background-1",
+        "color_scheme": "background-2",
         "newsletter_enable": true,
         "newsletter_heading": "",
         "enable_follow_on_shop": false,
@@ -44,10 +44,14 @@
         "payment_enable": false,
         "show_policy": false,
         "margin_top": 0,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "footer_mini_enable": true,
+        "footer_mini": "Id porttitor lectus est scelerisque libero adipiscing. Libero tortor, vulputate odio sed lorem neque, urna venenatis congue. Egestas sed sed lacinia orci cum."
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
