@@ -14,8 +14,18 @@
   }
 {%- endstyle -%}
 <style>
+  h2.product-heading {
+    margin: 0;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+  }
   .section {
     background-color: var(--gradient-background);
+  }
+  .ratings-block {
+    font-size: 20px;
   }
 
   .star-rating {
@@ -30,12 +40,7 @@
   .rated {
     color: #f8ce0b;
   }
-  .product-ratings-block {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+
   .icon-text {
     display: flex;
     align-items: center;
@@ -54,11 +59,19 @@
     display: flex;
     align-items: center;
   }
-  .header-payment {
-    margin: 0 auto;
+
+  .product-ratings-block {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
   }
   .section-header-button {
     margin-bottom: 40px;
+  }
+  @media (max-width: 767px) {
+    .header-grid__items p {
+      display: none;
+    }
   }
 </style>
 {% assign scheme1 = settings.color_schemes | first %}
@@ -106,7 +119,7 @@
             {% case block.type %}
                 {% comment %} ratings {% endcomment %}
               {%- when 'ratings' -%}
-                <div class="ptoduct-ratings-block">
+                <div class="product-ratings-block ">
                   {% assign rating = block.settings.ratings | round %}
                   <div class="star-rating">
                     {% for i in (1..rating) %}
@@ -120,7 +133,7 @@
                 </div>
               {%- when 'heading' -%}
                 <h2
-                  class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                  class="product-heading image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
                   {{ block.shopify_attributes }}
                 >
                   {{ block.settings.heading }}
@@ -152,7 +165,7 @@
                     {% else %}
                       href="{{ block.settings.button_link }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    class="section-header-button button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {%- render 'icon-left' -%}
@@ -173,7 +186,7 @@
                   </ul>
                 </div>
               {%- when 'icon-with-text-grid' -%}
-                <div class="header-grid">
+                <div class="header-grid ">
                   <div class="header-grid__items">
                     {% if block.settings['icon-1'] != blank %}
                       {{ block.settings['icon-1'] | image_url: '50x' }}
