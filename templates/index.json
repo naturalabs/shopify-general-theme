@@ -230,10 +230,10 @@
         "padding_bottom": 80
       }
     },
-    "section_solution": {
+    "860a7610-9065-451f-adfc-85b0089b3a81": {
       "type": "section-solution",
       "blocks": {
-        "caption": {
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-caption-1": {
           "type": "caption",
           "settings": {
             "caption": "CAPTION",
@@ -241,39 +241,39 @@
             "text_size": "medium"
           }
         },
-        "heading": {
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-heading-1": {
           "type": "heading",
           "settings": {
             "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             "heading_size": "h1"
           }
         },
-        "text": {
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
             "text_style": "body"
           }
         },
-        "check-with-text1": {
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-1": {
           "type": "icon-text",
           "settings": {
             "icon-text": "Lorem ipsum dolor sit amet, consectetur"
           }
         },
-        "check-with-text2": {
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-2": {
           "type": "icon-text",
           "settings": {
             "icon-text": "Lorem ipsum dolor sit amet, consectetur"
           }
         },
-        "check-with-text3": {
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-3": {
           "type": "icon-text",
           "settings": {
             "icon-text": "Lorem ipsum dolor sit amet, consectetur"
           }
         },
-        "check-with-text4": {
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-4": {
           "type": "icon-text",
           "settings": {
             "icon-text": "Lorem ipsum dolor sit amet, consectetur"
@@ -281,13 +281,13 @@
         }
       },
       "block_order": [
-        "caption",
-        "heading",
-        "text",
-        "check-with-text1",
-        "check-with-text2",
-        "check-with-text3",
-        "check-with-text4"
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-caption-1",
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-heading-1",
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-text-1",
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-1",
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-2",
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-3",
+        "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-icon-text-4"
       ],
       "settings": {
         "height": "adapt",
@@ -299,8 +299,8 @@
         "color_scheme": "background-2",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "section_benefits": {
@@ -360,7 +360,7 @@
         "background_style": "primary",
         "button_label": "Button label",
         "button_link": "",
-        "color_scheme": "",
+        "color_scheme": "background-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 80,
@@ -514,7 +514,7 @@
             "ratings": 5,
             "title": "Delicious Coffee",
             "text": "<p>“I love how convenient it is, and how is makesthe perfect ice coffee!!’</p>",
-            "customer": "Jenifer V.",
+            "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
             "link": ""
@@ -526,7 +526,7 @@
             "ratings": 5,
             "title": "Easy To Make",
             "text": "<p>“To say I am Obsessed with all these coffees isan understatement. I have limited time inmorning and it so easy and fast to prepare, andthe taste is amazing !!!”</p>",
-            "customer": "Celeste O.",
+            "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
             "link": ""
@@ -538,7 +538,7 @@
             "ratings": 5,
             "title": "Quick & Easy",
             "text": "<p>“Javy is so easy and do good! I’ve been makingmy own iced coffees at home for awhile, butthis is the best yet!”</p>",
-            "customer": "Ann L.",
+            "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
             "link": ""
@@ -547,11 +547,15 @@
       },
       "block_order": ["social-proof-1", "social-proof-2", "social-proof-3"],
       "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -673,63 +677,6 @@
         "padding_bottom": 80
       }
     },
-    "section_testimonial": {
-      "type": "section-testimonial",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "column_row": {
-          "type": "two_column_grid",
-          "settings": {
-            "ratings": "4.8",
-            "column_1_rating": 5,
-            "reviews": "Based on 19,453 reviews",
-            "column_2_text_1": "caffeine amount",
-            "column_2_rating_1": 4.5,
-            "column_2_text_2": "convenience",
-            "column_2_rating_2": 4.5,
-            "column_2_text_3": "EASY TO USE",
-            "column_2_rating_3": 4.5,
-            "column_2_text_4": "FLAVOR PROFILE",
-            "column_2_rating_4": 4.5,
-            "column_2_text_5": "VALUE FOR MONEY",
-            "column_2_rating_5": 4.5
-          }
-        },
-        "links": {
-          "type": "two_links",
-          "settings": {
-            "link_1_url": "",
-            "link_1_text": "Video Reviews",
-            "link_2_url": "",
-            "link_2_text": "Written Reviews"
-          }
-        }
-      },
-      "block_order": ["heading", "text", "column_row", "links"],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "column_1_text_1": "Default text",
-        "column_1_rating": 3,
-        "column_1_text_2": "Default text"
-      }
-    },
     "c9f622e0-5da7-4ea3-b4bd-d9c00313727a": {
       "type": "section-recommended",
       "disabled": true,
@@ -804,19 +751,74 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "e38b81fa-079d-4c73-8939-4d00ae0db556": {
+      "type": "section-testimonial",
+      "blocks": {
+        "template--19526944653630__e38b81fa-079d-4c73-8939-4d00ae0db556-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "d81eaa5c-3c86-4289-96ef-899c946511c5": {
+          "type": "two_column_grid",
+          "settings": {
+            "ratings": "4.8",
+            "column_1_rating": 5,
+            "reviews": "Based on 19,453 reviews",
+            "column_2_text_1": "CAFFFEINE AMOUNT",
+            "column_2_rating_1": 5,
+            "column_2_text_2": "CONVENIENCE",
+            "column_2_rating_2": 4.5,
+            "column_2_text_3": "EASY TO USE",
+            "column_2_rating_3": 4.5,
+            "column_2_text_4": "FLAVOR PROFILE",
+            "column_2_rating_4": 4.5,
+            "column_2_text_5": "VALUE FOR MONEY",
+            "column_2_rating_5": 4.5
+          }
+        },
+        "b1e2ba13-766a-4fb0-ab99-dd2b355a3a0c": {
+          "type": "two_links",
+          "settings": {
+            "link_1_url": "",
+            "link_1_text": "Video Reviews",
+            "link_2_url": "",
+            "link_2_text": "Written Reviews"
+          }
+        }
+      },
+      "block_order": [
+        "template--19526944653630__e38b81fa-079d-4c73-8939-4d00ae0db556-heading-1",
+        "d81eaa5c-3c86-4289-96ef-899c946511c5",
+        "b1e2ba13-766a-4fb0-ab99-dd2b355a3a0c"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "column_1_text_1": "Default text",
+        "column_1_rating": 3,
+        "column_1_text_2": "Default text"
+      }
     }
   },
   "order": [
     "section_header",
     "section_brag_bars",
     "section_problem",
-    "section_solution",
+    "860a7610-9065-451f-adfc-85b0089b3a81",
     "section_benefits",
     "section_competitor",
     "section_social_proof",
     "section_offer",
     "section_faq",
-    "section_testimonial",
-    "c9f622e0-5da7-4ea3-b4bd-d9c00313727a"
+    "c9f622e0-5da7-4ea3-b4bd-d9c00313727a",
+    "e38b81fa-079d-4c73-8939-4d00ae0db556"
   ]
 }
