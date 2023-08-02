@@ -52,6 +52,20 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .slider-button--prev {
+    left: 0;
+  }
+
+  .slider-button--next {
+    right: 0;
+  }
 </style>
 {%- liquid
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
@@ -200,12 +214,14 @@
           >
             {% render 'icon-caret' %}
           </button>
-          <div class="slider-counter caption">
-            <span class="slider-counter--current">1</span>
-            <span aria-hidden="true"> / </span>
-            <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-            <span class="slider-counter--total">{{ section.blocks.size }}</span>
-          </div>
+          {% comment %}
+            <div class="slider-counter caption">
+              <span class="slider-counter--current">1</span>
+              <span aria-hidden="true"> / </span>
+              <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+              <span class="slider-counter--total">{{ section.blocks.size }}</span>
+            </div>
+          {% endcomment %}
           <button
             type="button"
             class="slider-button slider-button--next"
