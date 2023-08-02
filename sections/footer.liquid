@@ -52,6 +52,26 @@
   }
   .input-wrapper {
     width: 900px;
+    position: relative;
+  }
+
+  .input-wrapper .icon-mail {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    /* Adjust size as needed */
+    height: 24px;
+    width: 24px;
+    z-index: 1;
+  }
+
+  .input-wrapper .field__input {
+    /* Adjust padding to match icon size */
+    padding-left: 50px;
+  }
+  .footer-field__label {
+    margin-left: 25px;
   }
 </style>
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -205,6 +225,8 @@
                 <div class="newsletter-form__field-wrapper">
                   <div class="field">
                     <div class="input-wrapper">
+                      {% comment %} Mail Icon {% endcomment %}
+                      {%- render 'icon-mail' -%}
                       <input
                         id="NewsletterForm--{{ section.id }}"
                         type="email"
@@ -225,7 +247,7 @@
                         placeholder="Enter your email..."
                         required
                       >
-                      <label class="field__label" for="NewsletterForm--{{ section.id }}"
+                      <label class="footer-field__label field__label" for="NewsletterForm--{{ section.id }}"
                         >Enter your email to get the latest news...</label
                       >
                     </div>

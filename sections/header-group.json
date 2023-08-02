@@ -13,9 +13,11 @@
           }
         }
       },
-      "block_order": ["announcement-bar-0"],
+      "block_order": [
+        "announcement-bar-0"
+      ],
       "settings": {
-        "color_scheme": "background-1",
+        "color_scheme": "background-2",
         "show_line_separator": true,
         "show_social": false,
         "auto_rotate": false,
@@ -44,5 +46,8 @@
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }
