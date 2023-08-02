@@ -479,14 +479,18 @@
         "template--19636010418494__a0882572-d276-408d-8957-7fb179458de6-column-3"
       ],
       "settings": {
+        "title": "",
+        "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
         "color_scheme": "",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
