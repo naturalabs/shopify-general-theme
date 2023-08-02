@@ -3522,3 +3522,6 @@ details-disclosure > details {
 li::marker {
   content: '';
 }
+.image-with-text__text {
+  margin-top: 12px;
+}
