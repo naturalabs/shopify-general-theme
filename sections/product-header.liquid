@@ -2,8 +2,8 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.3 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.3 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -59,6 +59,14 @@
     display: flex;
     align-items: center;
   }
+  .header-grid__items svg {
+    margin: 0 auto;
+  }
+  @media (min-width: 750px) {
+    .header-grid__items svg {
+      margin: unset;
+    }
+  }
 
   .product-ratings-block {
     display: flex;
@@ -71,6 +79,24 @@
   @media (max-width: 767px) {
     .header-grid__items p {
       display: none;
+    }
+  }
+  .product-image-with-text__content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-self: center;
+    padding: 4rem 4rem 0 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* padding bottom desktop */
+  @media (min-width: 750px) {
+    .product-image-with-text__content {
+      padding: 4rem;
     }
   }
 </style>
@@ -113,7 +139,7 @@
       <div class="image-with-text__text-item grid__item">
         <div
           id="ImageWithText--{{ section.id }}"
-          class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} content-container"
+          class="product-image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} content-container"
         >
           {%- for block in section.blocks -%}
             {% case block.type %}
