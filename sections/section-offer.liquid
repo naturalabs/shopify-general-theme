@@ -35,6 +35,9 @@
     position: relative;
     z-index: 1;
   }
+  .offer-button {
+    margin-top: 40px;
+  }
 
   /* padding bottom desktop */
   @media (min-width: 750px) {
@@ -112,7 +115,7 @@
                     {% else %}
                       href="{{ block.settings.button_link }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    class="offer-button button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {%- render 'icon-left' -%}
