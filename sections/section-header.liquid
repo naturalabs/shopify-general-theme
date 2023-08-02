@@ -109,16 +109,14 @@
     height: 100%;
     justify-content: center;
     align-self: center;
-    padding: 4rem 0 0 0;
-
+    padding-top: 4rem;
     position: relative;
     z-index: 1;
   }
 
-  // padding bottom desktop
   @media (min-width: 750px) {
     .header-image-with-text__content {
-      padding: 4rem;
+      padding-right: 4rem;
     }
     .section-header-button {
       margin-top: 40px;
@@ -171,7 +169,6 @@
                       <span class="star rated">&#9733;</span>
                     {% endfor %}
                   </div>
-
                   <p class="ratings-paragraph">
                     {{ block.settings.paragraph_text | escape }}
                   </p>
@@ -220,7 +217,6 @@
                     {% for i in (1..rating) %}
                       <span class="star rated">&#9733;</span>
                     {% endfor %}
-                    t
                   </div>
 
                   <p class="ratings-paragraph">
