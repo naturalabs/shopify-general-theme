@@ -2,8 +2,8 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.3 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.3 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -18,10 +18,31 @@
     padding: 0;
     margin: 0;
   }
+
   .section {
     background-color: var(--gradient-background);
   }
+
+  .problem-image-with-text__content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-self: center;
+    padding: 4rem 4rem 0 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* padding bottom desktop */
+  @media (min-width: 750px) {
+    .problem-image-with-text__content {
+      padding: 4rem;
+    }
+  }
 </style>
+
 {% assign scheme1 = settings.color_schemes | first %}
 {% comment %} fullwidth background {% endcomment %}
 <div class="section color-{{ section.settings.color_scheme }} ">
@@ -61,7 +82,7 @@
       <div class="image-with-text__text-item grid__item">
         <div
           id="ImageWithText--{{ section.id }}"
-          class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} content-container"
+          class="problem-image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} content-container"
         >
           {%- for block in section.blocks -%}
             {% case block.type %}
