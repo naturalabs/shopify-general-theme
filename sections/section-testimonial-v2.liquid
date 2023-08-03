@@ -1,0 +1,129 @@
+{% schema %}
+{
+  "name": "Testimonial section",
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "image",
+          "label": "Customer Image URL"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial",
+          "label": "Testimonial Message",
+          "default": "This is a great product!"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .testimonial {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  .testimonial img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .testimonial h3 {
+    margin-bottom: 10px;
+  }
+
+  .rating-bar {
+    background-color: #ccc;
+    height: 20px;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .rating-bar-container {
+    background-color: #eee;
+    border-radius: 10px;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const ratingsElements = Array.from(document.querySelectorAll('.testimonial-rating'));
+    const ratings = ratingsElements.map((el) => parseInt(el.innerText));
+    const totalRatings = ratings.length;
+    let totalScore = 0;
+    const ratingCounts = [0, 0, 0, 0, 0];
+
+    ratings.forEach((rating) => {
+      totalScore += rating;
+      ratingCounts[rating - 1]++;
+    });
+
+    const averageRating = (totalScore / totalRatings).toFixed(2);
+
+    const totalTestimonialsElement = document.getElementById('total-testimonials');
+    const averageRatingElement = document.getElementById('average-rating');
+    const starCountElements = Array.from({ length: 5 }, (_, i) => document.getElementById(`star-${i + 1}-count`));
+    const ratingBarElements = Array.from({ length: 5 }, (_, i) => document.getElementById(`rating-bar-${i + 1}`));
+
+    totalTestimonialsElement.innerText = totalRatings;
+    averageRatingElement.innerText = averageRating;
+
+    starCountElements.forEach((element, index) => {
+      element.innerText = ratingCounts[index];
+    });
+
+    ratingBarElements.forEach((element, index) => {
+      const percentage = (ratingCounts[index] / totalRatings) * 100 + '%';
+      element.style.width = percentage;
+    });
+  });
+{% endjavascript %}
+
+<p>Total Testimonials: <span id="total-testimonials"></span></p>
+<p>Average Rating: <span id="average-rating"></span></p>
+{% for i in (1..5) %}
+  <p>{{ i }} Star Ratings: <span id="star-{{ i }}-count"></span></p>
+  <div class="rating-bar-container">
+    <div class="rating-bar" id="rating-bar-{{ i }}"></div>
+  </div>
+{% endfor %}
+{% for block in section.blocks %}
+  <div class="testimonial">
+    <img src="{{ block.settings.image }}" alt="{{ block.settings.name }}" width="45" height="45" loading="lazy">
+    <h3>{{ block.settings.name }}</h3>
+    <p class="testimonial-rating">Rating: {{ block.settings.rating }}</p>
+    <blockquote>{{ block.settings.testimonial }}</blockquote>
+  </div>
+{% endfor %}
