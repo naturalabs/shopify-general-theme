@@ -30,19 +30,31 @@
     justify-content: center;
     gap: 20px;
   }
-
-  @media (min-width: 750px) {
-    .section-benefits__card {
-      gap: 30px;
-    }
-  }
   .section-benefits-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 30px;
-    height: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
+  .benefits-multicolumn-card__info {
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+  @media (min-width: 750px) {
+    .benefits-multicolumn-card__info {
+      padding: 2.5rem;
+    }
+    .section-benefits__card {
+      gap: 30px;
+    }
+    .section-benefits-wrapper {
+      height: 100%;
+    }
+  }
+
   .multicolumn-card__element {
     display: flex;
     gap: 16px;
@@ -63,6 +75,7 @@
 
   .brag-bars-multicolumn-list .block-2 {
     order: 1;
+    margin: 0;
   }
   .brag-bars-multicolumn-list .block-3 {
     order: 3;
@@ -193,7 +206,7 @@
                 {% assign spaced_image = true %}
               {% endif %}
               <div
-                class="section-benefits-wrapper multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}"
+                class="section-benefits-wrapper "
                 style="padding-top:0"
               >
                 <div
@@ -234,7 +247,7 @@
                 </div>
               </div>
             {%- endif -%}
-            <div class="section-benefits__card card-{{ forloop.index }} multicolumn-card__info section-benefits__card-info">
+            <div class="section-benefits__card card-{{ forloop.index }} benefits-multicolumn-card__info section-benefits__card-info">
               <div class="multicolumn-card__element">
                 {% comment %}
                   {%- if block.settings['icon-1'] != blank -%}
