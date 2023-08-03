@@ -415,7 +415,7 @@
         "02f83a60-48a0-439f-9add-dc6f666a8d0d": {
           "type": "table_row",
           "settings": {
-            "column_1": "Fast, Easy, and Convenient",
+            "column_1": "Helps Rebuild the Environment",
             "column_2": "check",
             "column_2_text": "Default text",
             "column_3": "cross",
@@ -427,7 +427,7 @@
         "c144cef4-9859-4fba-ab94-86467098766e": {
           "type": "table_row",
           "settings": {
-            "column_1": "Fast, Easy, and Convenient",
+            "column_1": "Guilt-Free & Natural",
             "column_2": "check",
             "column_2_text": "Default text",
             "column_3": "cross",
@@ -439,7 +439,7 @@
         "063fe056-6c08-4fbf-8e58-2fcc855ffa3f": {
           "type": "table_row",
           "settings": {
-            "column_1": "Fast, Easy, and Convenient",
+            "column_1": "Makes Cold Brew and Hot Coffee",
             "column_2": "check",
             "column_2_text": "Default text",
             "column_3": "cross",
@@ -451,7 +451,7 @@
         "3113f261-aab5-4f6f-9c03-72d918801a40": {
           "type": "table_row",
           "settings": {
-            "column_1": "Fast, Easy, and Convenient",
+            "column_1": "No Coffee Makers Needed",
             "column_2": "check",
             "column_2_text": "Default text",
             "column_3": "cross",
@@ -463,25 +463,25 @@
         "f58a88f6-cad8-404c-89e9-d0baec770275": {
           "type": "table_row",
           "settings": {
-            "column_1": "Fast, Easy, and Convenient",
-            "column_2": "check",
-            "column_2_text": "Default text",
-            "column_3": "cross",
-            "column_3_text": "Default text",
-            "column_4": "cross",
-            "column_4_text": "Default text"
+            "column_1": "Amount of Servings",
+            "column_2": "text",
+            "column_2_text": "30 servings",
+            "column_3": "text",
+            "column_3_text": "1 serving",
+            "column_4": "text",
+            "column_4_text": "1 serving"
           }
         },
         "9206c381-1762-411c-97ea-0ace564693e2": {
           "type": "table_row",
           "settings": {
-            "column_1": "Fast, Easy, and Convenient",
-            "column_2": "check",
-            "column_2_text": "Default text",
-            "column_3": "cross",
-            "column_3_text": "Default text",
-            "column_4": "cross",
-            "column_4_text": "Default text"
+            "column_1": "Price per Cup",
+            "column_2": "text",
+            "column_2_text": "$ 0.66",
+            "column_3": "text",
+            "column_3_text": "$1.00",
+            "column_4": "text",
+            "column_4_text": "$0.87"
           }
         }
       },
