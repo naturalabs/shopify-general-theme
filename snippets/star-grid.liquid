@@ -1,0 +1,46 @@
+<div class="testimonial-grid">
+  {% for i in (1..5) %}
+    {% assign rating = 6 | minus: i %}
+    <div class="testimonial-row">
+      <div class="testimonial-star-rating">
+        {% for j in (1..5) %}
+          {% if j <= rating %}
+            <span class="testimonial-star filled">&#9733;</span>
+          {% else %}
+            <span class="testimonial-star">&#9733;</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-row {
+    display: contents;
+  }
+
+  .testimonial-star-rating {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .testimonial-star-rating .testimonial-star {
+    margin: 0 0.25em;
+    color: lightgray;
+  }
+
+  .testimonial-star-rating .testimonial-star.filled {
+    color: gold;
+  }
+
+  .testimonial-star {
+    font-size: 30px;
+  }
+</style>
