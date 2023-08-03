@@ -5,6 +5,10 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+  .competitor-page-width{
+    max-width: var(--page-width);
+    margin: 0 auto;
+  }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
@@ -30,6 +34,22 @@
     font-style: normal;
     font-weight: 700;
     line-height: 24px; /* 160% */
+  }
+  td:nth-child(4),
+  th:nth-child(4) {
+    display: none;
+  }
+  @media (min-width: 750px) {
+    thead td {
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px; /* 160% */
+    }
+    td:nth-child(4),
+    th:nth-child(4) {
+      display: table-cell;
+    }
   }
   td {
     border: none; /* Removes border around each cell */
@@ -100,7 +120,7 @@
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
   <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
-    <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
+    <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} competitor-page-width{% endif %}">
       <div class=" {{ section.settings.content_alignment }}">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
