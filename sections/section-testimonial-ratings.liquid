@@ -3,8 +3,8 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -17,7 +17,24 @@
 <style>
   .testimonial-grid-2 {
     display: grid;
-    grid-template-columns: auto auto 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .multicolumn-list__item.block-1,
+  .multicolumn-list__item.block-2,
+  .multicolumn-list__item.block-3 {
+    display: none;
+  }
+  @media (min-width: 750px) {
+    .testimonial-grid-2 {
+      display: grid;
+      grid-template-columns: auto auto auto 1fr 1fr;
+    }
+    .multicolumn .testimonial-button {
+      padding: 15px 40px;
+    }
   }
   .testimonial-ratings {
     display: flex;
@@ -40,7 +57,7 @@
     width: 110px;
   }
   .multicolumn .testimonial-button {
-    padding: 15px 40px;
+    padding: 15px 30px;
 
     color: #fff;
     font-size: 11px;
@@ -120,7 +137,7 @@
               <div class="testimonial-multicolumn-card__info">
                 {% case block.type %}
                   {% when 'testimonial_ratings' %}
-                    <div class="testimonial-ratings">
+                    <div class="testimonial-ratings mobile">
                       <div class="ratings-wrapper">
                         <p class="ratings-text">{{ block.settings.ratings }}</p>
                         <div class="testimonial-ratings-block">
@@ -140,14 +157,14 @@
                           </div>
                         </div>
                       </div>
-                      <p class="ratings-paragraph">
+                      <p class="ratings-paragraph ">
                         {{ block.settings.reviews }}
                       </p>
                     </div>
                   {% when 'testimonial' %}
                     <div class="testimonial-row">
                       {% for i in (1..5) %}
-                        <div class="testimonial-star-rating">
+                        <div class="testimonial-star-rating mobile">
                           {% assign star_rating_id = 'star_rating-' | append: i %}
                           {% assign star_rating = block.settings[star_rating_id] %}
                           {% for j in (1..5) %}
@@ -166,7 +183,7 @@
                       {% assign bar_number_id = 'bar_number-' | append: i %}
                       {% assign progress = block.settings[progress_id] %}
                       {% assign bar_number = block.settings[bar_number_id] %}
-                      <div class="progress-container">
+                      <div class="progress-container mobile">
                         <div class="progress-bar">
                           <div class="progress" style="width: {{ progress }}%;">
                             {{ progress }}
@@ -306,9 +323,27 @@
   /* icon */
   .icon-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1em;
+  }
+  .icon-grid > :nth-child(n + 4) {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+
+  @media (min-width: 750px) {
+    .icon-grid > :nth-child(n + 4) {
+      display: grid;
+    }
+    .icon-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .mobile {
+      display: flex;
+    }
   }
 </style>
 
