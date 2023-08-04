@@ -3,8 +3,8 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -30,9 +30,10 @@
   }
   .user-wrapper {
     display: flex;
+    font-size: 18px;
+    gap: 10px;
   }
   .user-wrapper p.verified {
-    font-size: 18px;
     color: #3cb36c;
   }
   .testimonial-image {
@@ -56,6 +57,15 @@
   }
   .likes-wrapper p {
     margin-right: 20px;
+  }
+  .grid-images {
+    display: grid;
+    grid-template-columns: repeat(4, 220px);
+    grid-gap: 10px;
+  }
+  .grid-item img {
+    max-width: 220px;
+    height: auto;
   }
 </style>
 {%- liquid
@@ -167,6 +177,22 @@
                     </div>
                     <div class="comment-block">
                       <p>{{ block.settings.comment }}</p>
+                      <div class="grid-images">
+                        {% for i in (1..8) %}
+                          {% assign image_id = 'image' | append: i %}
+                          {% if block.settings[image_id] != blank %}
+                            <div class="grid-item">
+                              <img
+                                src="{{ block.settings[image_id].src | image_url }}"
+                                alt="Icon"
+                                loading="lazy"
+                                width="220"
+                                height="144"
+                              >
+                            </div>
+                          {% endif %}
+                        {% endfor %}
+                      </div>
                     </div>
                     <div class="likes-block">
                       <div class="likes-wrapper">
@@ -358,6 +384,46 @@
           "id": "thumb_down",
           "label": "Thumb down value",
           "default": "0"
+        },
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Grid Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Grid Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Grid Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image4",
+          "label": "Grid Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image5",
+          "label": "Grid Image 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image6",
+          "label": "Grid Image 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "image7",
+          "label": "Grid Image 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "image8",
+          "label": "Grid Image 8"
         }
       ]
     }
