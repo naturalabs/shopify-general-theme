@@ -19,12 +19,24 @@
     display: grid;
     grid-template-columns: 1fr;
   }
+  .testimonial-grid-3 li {
+    border-bottom: 1px solid #c3c3c3;
+    margin-bottom: 40px;
+  }
+
   .user-block {
     display: flex;
     justify-content: space-between;
   }
   .user-wrapper {
     display: flex;
+  }
+  .user-wrapper p.verified {
+    font-size: 18px;
+    color: #3cb36c;
+  }
+  .testimonial-image {
+    margin-right: 30px;
   }
   .testimonial-multicolumn-card {
     width: 100%;
@@ -35,6 +47,15 @@
   .likes-block {
     display: flex;
     justify-content: flex-end;
+  }
+  .likes-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .likes-wrapper p {
+    margin-right: 20px;
   }
 </style>
 {%- liquid
@@ -139,7 +160,7 @@
                             </div>
                           </div>
 
-                          <p>{{ block.settings.verified_buyer }}</p>
+                          <p class="verified">{{ block.settings.verified_buyer }}</p>
                         </div>
                         <div class="date-wrapper">12/15/2023</div>
                       </div>
@@ -147,7 +168,15 @@
                     <div class="comment-block">
                       <p>{{ block.settings.comment }}</p>
                     </div>
-                    <div class="likes-block">Find this helpful?</div>
+                    <div class="likes-block">
+                      <div class="likes-wrapper">
+                        <p>Find this helpful?</p>
+                        {%- render 'icon-thumb-up' -%}
+                        <p>{{ block.settings.thumb_up }}</p>
+                        {%- render 'icon-thumb-down' -%}
+                        <p>{{ block.settings.thumb_down }}</p>
+                      </div>
+                    </div>
                 {% endcase %}
               </div>
             </div>
@@ -290,7 +319,7 @@
           "type": "text",
           "id": "name",
           "label": "Name",
-          "default": "John Doe"
+          "default": "Name/Last Name"
         },
         {
           "type": "range",
@@ -317,13 +346,25 @@
           "id": "comment",
           "label": "Comment",
           "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          "type": "text",
+          "id": "thumb_up",
+          "label": "Thumb up value",
+          "default": "0"
+        },
+        {
+          "type": "text",
+          "id": "thumb_down",
+          "label": "Thumb down value",
+          "default": "0"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Testimonials"
+      "name": "testimonial"
     }
   ]
 }
