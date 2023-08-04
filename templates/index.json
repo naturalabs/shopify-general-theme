@@ -772,61 +772,6 @@
         "padding_bottom": 36
       }
     },
-    "e38b81fa-079d-4c73-8939-4d00ae0db556": {
-      "type": "section-testimonial",
-      "blocks": {
-        "template--19526944653630__e38b81fa-079d-4c73-8939-4d00ae0db556-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "d81eaa5c-3c86-4289-96ef-899c946511c5": {
-          "type": "two_column_grid",
-          "settings": {
-            "ratings": "4.8",
-            "column_1_rating": 5,
-            "reviews": "Based on 19,453 reviews",
-            "column_2_text_1": "CAFFFEINE AMOUNT",
-            "column_2_rating_1": 5,
-            "column_2_text_2": "CONVENIENCE",
-            "column_2_rating_2": 4.5,
-            "column_2_text_3": "EASY TO USE",
-            "column_2_rating_3": 4.5,
-            "column_2_text_4": "FLAVOR PROFILE",
-            "column_2_rating_4": 4.5,
-            "column_2_text_5": "VALUE FOR MONEY",
-            "column_2_rating_5": 4.5
-          }
-        },
-        "b1e2ba13-766a-4fb0-ab99-dd2b355a3a0c": {
-          "type": "two_links",
-          "settings": {
-            "link_1_url": "",
-            "link_1_text": "Video Reviews",
-            "link_2_url": "",
-            "link_2_text": "Written Reviews"
-          }
-        }
-      },
-      "block_order": [
-        "template--19526944653630__e38b81fa-079d-4c73-8939-4d00ae0db556-heading-1",
-        "d81eaa5c-3c86-4289-96ef-899c946511c5",
-        "b1e2ba13-766a-4fb0-ab99-dd2b355a3a0c"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "column_1_text_1": "Default text",
-        "column_1_rating": 3,
-        "column_1_text_2": "Default text"
-      }
-    },
     "039d6995-8e45-4326-8a87-d7b8d3ca9039": {
       "type": "section-testimonial-ratings",
       "blocks": {
@@ -916,7 +861,11 @@
             "verified_buyer": "Verified Buyer",
             "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             "thumb_up": "0",
-            "thumb_down": "0"
+            "thumb_down": "0",
+            "image1": "shopify:\/\/shop_images\/brag-bars-veritas.png",
+            "image2": "shopify:\/\/shop_images\/brag-bars-womens-health.png",
+            "image3": "shopify:\/\/shop_images\/brag-bars-gq.png",
+            "image4": "shopify:\/\/shop_images\/brag-bars-menshealth.png"
           }
         }
       },
@@ -945,7 +894,6 @@
     "section_offer",
     "section_faq",
     "c9f622e0-5da7-4ea3-b4bd-d9c00313727a",
-    "e38b81fa-079d-4c73-8939-4d00ae0db556",
     "039d6995-8e45-4326-8a87-d7b8d3ca9039",
     "15ad10db-61d0-439f-851d-aebf5a5e2b9e"
   ]
