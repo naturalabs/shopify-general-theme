@@ -826,6 +826,73 @@
         "column_1_rating": 3,
         "column_1_text_2": "Default text"
       }
+    },
+    "039d6995-8e45-4326-8a87-d7b8d3ca9039": {
+      "type": "section-testimonial-ratings",
+      "blocks": {
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-testimonial_ratings-1": {
+          "type": "testimonial_ratings",
+          "settings": {
+            "ratings": "4.8",
+            "column_1_rating": 5,
+            "reviews": "Reviews"
+          }
+        },
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating-1": 5,
+            "star_rating-2": 4,
+            "star_rating-3": 3,
+            "star_rating-4": 2,
+            "star_rating-5": 1
+          }
+        },
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-bar-1": {
+          "type": "bar",
+          "settings": {
+            "progress-1": 100,
+            "bar_number-1": 99,
+            "progress-2": 85,
+            "bar_number-2": 30,
+            "progress-3": 60,
+            "bar_number-3": 53,
+            "progress-4": 40,
+            "bar_number-4": 20,
+            "progress-5": 10,
+            "bar_number-5": 4
+          }
+        },
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-icon-1": {
+          "type": "icon",
+          "settings": {
+          }
+        },
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "button_1_text": "Write a Review",
+            "button_1_url": "\/",
+            "button_2_text": "Ask a Question",
+            "button_2_url": "\/"
+          }
+        }
+      },
+      "block_order": [
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-testimonial_ratings-1",
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-testimonial-1",
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-bar-1",
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-icon-1",
+        "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-buttons-1"
+      ],
+      "settings": {
+        "heading": "Site Name Reviews",
+        "heading_size": "h1",
+        "caption": "Add a tagline",
+        "text_style": "caption-with-letter-spacing",
+        "text_size": "medium",
+        "content_alignment": "center"
+      }
     }
   },
   "order": [
@@ -839,6 +906,7 @@
     "section_offer",
     "section_faq",
     "c9f622e0-5da7-4ea3-b4bd-d9c00313727a",
-    "e38b81fa-079d-4c73-8939-4d00ae0db556"
+    "e38b81fa-079d-4c73-8939-4d00ae0db556",
+    "039d6995-8e45-4326-8a87-d7b8d3ca9039"
   ]
 }
