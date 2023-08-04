@@ -1,97 +1,36 @@
+{% schema %}
 {
-  "sections": {
-    "section_header": {
-      "type": "section-header",
-      "blocks": {
-        "ratings": {
-          "type": "ratings",
-          "settings": {
-            "ratings": 5,
-            "paragraph_text": "+Lorem ipsum"
-          }
-        },
-        "caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "Caption",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
+  "name": "Tabs Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
           "type": "text",
-          "settings": {
-            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/strong><\/p>",
-            "text_style": "body"
-          }
+          "id": "tab_name",
+          "label": "Tab Name",
+          "default": "Tab"
         },
-        "icon-text1": {
-          "type": "icon-text",
-          "settings": {
-            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
-          }
-        },
-        "icon-text2": {
-          "type": "icon-text",
-          "settings": {
-            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
-          }
-        },
-        "icon-text3": {
-          "type": "icon-text",
-          "settings": {
-            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
-          }
-        },
-        "icon-text4": {
-          "type": "icon-text",
-          "settings": {
-            "icon-text": "Lorem ipsum dolor sit amet, consectetur"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content",
+          "default": "Tab content goes here."
         }
-      },
-      "block_order": [
-        "ratings",
-        "caption",
-        "heading",
-        "text",
-        "icon-text1",
-        "icon-text2",
-        "icon-text3",
-        "icon-text4",
-        "button"
       ],
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "limit": 2
     }
-  },
-  "order": [
-    "section_header"
   ]
 }
+{% endschema %}
+
+{% for block in section.blocks limit:2 %}
+  <input type="radio" id="tab-{{ forloop.index }}" name="mytabs" {% if forloop.first %}checked="checked"{% endif %}>
+  <label for="tab-{{ forloop.index }}">{{ block.settings.tab_name }}</label>
+  <div class="tab">
+    <h2>{{ block.settings.tab_name }}</h2>
+    <p>{{ block.settings.content }}</p>
+  </div>
+{% endfor %}
