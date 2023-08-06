@@ -18,7 +18,6 @@
   .testimonial-grid-3 {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 0;
   }
   .testimonial-grid-3 li {
     border-bottom: 1px solid #c3c3c3;
@@ -68,7 +67,7 @@
     max-width: 220px;
     height: auto;
   }
-  /*-------- Tabs ------------*/
+  /* Tabs */
   .mytabs {
     display: flex;
     flex-wrap: wrap;
@@ -79,21 +78,17 @@
     display: none;
   }
   .mytabs label {
-    padding-bottom: 16px;
-    margin-right: 55px;
-    /* background: #e2e2e2; */
+    padding: 25px;
+    background: #e2e2e2;
     font-weight: bold;
-    border-bottom: 5px solid #fff;
   }
 
   .mytabs .tab {
     width: 100%;
-    /* padding: 20px; */
+    padding: 20px;
     background: #fff;
     order: 1;
     display: none;
-    border-top: 1px solid #c3c3c3;
-    padding-top: 100px;
   }
   .mytabs .tab h2 {
     font-size: 3em;
@@ -105,7 +100,6 @@
 
   .mytabs input[type='radio']:checked + label {
     background: #fff;
-    border-bottom: 5px solid black;
   }
 </style>
 {%- liquid
@@ -135,141 +129,158 @@
       </h2>
     </div>
     <slider-component class="slider-mobile-gutter">
-      <!-- Tabs Starts here -->
-      <div class="mytabs">
-        <input type="radio" id="tabfree" name="mytabs" checked="checked">
-        <label for="tabfree">Reviews</label>
-        <div class="tab">
-          <ul
-            class=" testimonial-grid-3"
-            id="Slider-{{ section.id }}"
-            role="list"
+      <ul
+        class=" testimonial-grid-3"
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+        {%- liquid
+          assign highest_ratio = 0
+          for block in section.blocks
+            if block.settings.image.aspect_ratio > highest_ratio
+              assign highest_ratio = block.settings.image.aspect_ratio
+            endif
+          endfor
+        -%}
+        {%- for block in section.blocks -%}
+          {%- assign empty_column = '' -%}
+          {%- if block.settings.image == blank
+            and block.settings.title == blank
+            and block.settings.text == blank
+            and block.settings.link_label == blank
+          -%}
+            {%- assign empty_column = ' multicolumn-list__item--empty' -%}
+          {%- endif -%}
+
+          <li
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+            class=" block-{{ forloop.index }}"
+            {{ block.shopify_attributes }}
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
           >
-            {%- liquid
-              assign highest_ratio = 0
-              for block in section.blocks
-                if block.settings.image.aspect_ratio > highest_ratio
-                  assign highest_ratio = block.settings.image.aspect_ratio
-                endif
-              endfor
-            -%}
-            {%- for block in section.blocks -%}
-              {%- assign empty_column = '' -%}
-              {%- if block.settings.image == blank
-                and block.settings.title == blank
-                and block.settings.text == blank
-                and block.settings.link_label == blank
-              -%}
-                {%- assign empty_column = ' multicolumn-list__item--empty' -%}
-              {%- endif -%}
+            <div class="testimonial-multicolumn-card content-container">
+              <div class="">
+                <!-- Edit here -->
+                <div class="mytabs">
+                  <!-- Tabs Controls -->
+                  <input type="radio" id="tabfree" name="mytabs" checked="checked">
+                  <label for="tabfree">Reviews</label>
+                  <input type="radio" id="tabsilver" name="mytabs">
+                  <label for="tabsilver">Questions</label>
 
-              <li
-                id="Slide-{{ section.id }}-{{ forloop.index }}"
-                class=" block-{{ forloop.index }}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                <div class="testimonial-multicolumn-card content-container">
-                  <div class="">
-                    <!-- Edit here -->
-                    {% case block.type %}
-                      {% when 'testimonial' %}
-                        <div class="testimonial-block">
-                          <div class="user-block">
-                            <div class="user-wrapper">
-                              <div class="testimonial-image">
-                                {% if block.settings.image != blank %}
-                                  <img
-                                    src="{{ block.settings.image.src | image_url }}"
-                                    alt="Icon"
-                                    loading="lazy"
-                                    width="100"
-                                    height="100"
-                                  >
-                                {% else %}
-                                  {% render 'icon-placeholder' %}
-                                {% endif %}
-                              </div>
+                  <!-- Reviews Tab Content -->
+                  <div class="tab">
+                    <ul class="testimonial-grid-3" id="Slider-{{ section.id }}" role="list">
+                      {%- liquid
+                        assign highest_ratio = 0
+                        for block in section.blocks
+                          if block.settings.image.aspect_ratio > highest_ratio
+                            assign highest_ratio = block.settings.image.aspect_ratio
+                          endif
+                        endfor
+                      -%}
 
-                              <div class="user-rating-wrapper">
-                                <p>{{ block.settings.name }}</p>
+                      {%- for block in section.blocks -%}
+                        {% case block.type %}
+                          {% when 'testimonial' %}
+                            <li
+                              id="Slide-{{ section.id }}-{{ forloop.index }}"
+                              class="block-{{ forloop.index }}"
+                              {{ block.shopify_attributes }}
+                            >
+                              <div class="testimonial-multicolumn-card content-container">
+                                <div class="testimonial-block">
+                                  <div class="user-block">
+                                    <div class="user-wrapper">
+                                      <div class="testimonial-image">
+                                        {% if block.settings.image != blank %}
+                                          <img
+                                            src="{{ block.settings.image.src | image_url }}"
+                                            alt="Icon"
+                                            loading="lazy"
+                                            width="100"
+                                            height="100"
+                                          >
+                                        {% else %}
+                                          {% render 'icon-placeholder' %}
+                                        {% endif %}
+                                      </div>
 
-                                {% assign rating = block.settings.rating | floor %}
-                                {% assign has_half_star = block.settings.rating | modulo: 1 %}
-                                {% assign total_stars = rating %}
+                                      <div class="user-rating-wrapper">
+                                        <p>{{ block.settings.name }}</p>
 
-                                <div class="">
-                                  <div class="star-rating">
-                                    {% liquid
-                                      for i in (1..rating)
-                                        render 'icon-star-full'
-                                      endfor
-                                    %}
-                                    {% if has_half_star > 0 %}
-                                      {%- render 'icon-star-half' -%}
-                                      {% assign total_stars = total_stars | plus: 1 %}
-                                    {% endif %}
+                                        {% assign rating = block.settings.rating | floor %}
+                                        {% assign has_half_star = block.settings.rating | modulo: 1 %}
+                                        {% assign total_stars = rating %}
+
+                                        <div class="star-rating">
+                                          {% for i in (1..rating) %}
+                                            {% render 'icon-star-full' %}
+                                          {% endfor %}
+                                          {% if has_half_star > 0 %}
+                                            {% render 'icon-star-half' %}
+                                            {% assign total_stars = total_stars | plus: 1 %}
+                                          {% endif %}
+                                        </div>
+                                      </div>
+
+                                      <p class="verified">{{ block.settings.verified_buyer }}</p>
+                                    </div>
+                                    <div class="date-wrapper">12/15/2023</div>
+                                  </div>
+                                </div>
+
+                                <div class="comment-block">
+                                  <p>{{ block.settings.comment }}</p>
+                                  <div class="grid-images">
+                                    {% for i in (1..8) %}
+                                      {% assign image_id = 'image' | append: i %}
+                                      {% if block.settings[image_id] != blank %}
+                                        <div class="grid-item">
+                                          <img
+                                            src="{{ block.settings[image_id].src | image_url }}"
+                                            alt="Icon"
+                                            loading="lazy"
+                                            width="220"
+                                            height="144"
+                                          >
+                                        </div>
+                                      {% endif %}
+                                    {% endfor %}
+                                  </div>
+                                </div>
+                                <div class="likes-block">
+                                  <div class="likes-wrapper">
+                                    <p>Find this helpful?</p>
+                                    {% render 'icon-thumb-up' %}
+                                    <p>{{ block.settings.thumb_up }}</p>
+                                    {% render 'icon-thumb-down' %}
+                                    <p>{{ block.settings.thumb_down }}</p>
                                   </div>
                                 </div>
                               </div>
+                            </li>
+                        {% endcase %}
+                      {%- endfor -%}
+                    </ul>
+                  </div>
 
-                              <p class="verified">{{ block.settings.verified_buyer }}</p>
-                            </div>
-                            <div class="date-wrapper">12/15/2023</div>
-                          </div>
-                        </div>
-                        <div class="comment-block">
-                          <p>{{ block.settings.comment }}</p>
-                          <div class="grid-images">
-                            {% for i in (1..8) %}
-                              {% assign image_id = 'image' | append: i %}
-                              {% if block.settings[image_id] != blank %}
-                                <div class="grid-item">
-                                  <img
-                                    src="{{ block.settings[image_id].src | image_url }}"
-                                    alt="Icon"
-                                    loading="lazy"
-                                    width="220"
-                                    height="144"
-                                  >
-                                </div>
-                              {% endif %}
-                            {% endfor %}
-                          </div>
-                        </div>
-                        <div class="likes-block">
-                          <div class="likes-wrapper">
-                            <p>Find this helpful?</p>
-                            {%- render 'icon-thumb-up' -%}
-                            <p>{{ block.settings.thumb_up }}</p>
-                            {%- render 'icon-thumb-down' -%}
-                            <p>{{ block.settings.thumb_down }}</p>
-                          </div>
-                        </div>
-                    {% endcase %}
-                    <!-- End Edit here -->
+                  <!-- Questions Tab Content -->
+                  <div class="tab">
+                    <h2>Questions</h2>
+                    <p>Questions here....</p>
                   </div>
                 </div>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-        <input type="radio" id="tabsilver" name="mytabs">
-        <label for="tabsilver">Questions</label>
-        <div class="tab">
-          <h2>Questions</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-        <!-- Tabs Ends here -->
-      </div>
+                <!-- End Edit here -->
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+
       {%- if show_mobile_slider -%}
         <div class="slider-buttons no-js-hidden medium-hide">
           <button
