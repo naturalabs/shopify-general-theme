@@ -15,6 +15,9 @@
   }
 {%- endstyle -%}
 <style>
+  .testimonial-block {
+    width: 100%;
+  }
   .testimonial-grid-3 {
     display: grid;
     grid-template-columns: 1fr;
@@ -26,8 +29,9 @@
   }
 
   .user-block {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
   }
   .user-wrapper {
     display: flex;
@@ -38,17 +42,16 @@
     color: #3cb36c;
   }
   .testimonial-image {
-    margin-right: 30px;
+    margin-right: 5px;
   }
   .testimonial-multicolumn-card {
     width: 100%;
   }
   .comment-block {
-    width: 80%;
+    width: 100%;
   }
   .likes-block {
-    display: flex;
-    justify-content: flex-end;
+    display: none;
   }
   .likes-wrapper {
     display: flex;
@@ -61,8 +64,17 @@
   }
   .grid-images {
     display: grid;
-    grid-template-columns: repeat(4, 220px);
+    grid-template-columns: repeat(4, minmax(1fr, 220px));
     grid-gap: 10px;
+  }
+  @media (min-width: 750px) {
+    .likes-block {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .testimonial-image {
+      margin-right: 30px;
+    }
   }
   .grid-item img {
     max-width: 220px;
@@ -72,18 +84,41 @@
   .mytabs {
     display: flex;
     flex-wrap: wrap;
-    margin: 50px auto;
+    // margin: 50px auto;
     padding: 25px;
   }
   .mytabs input[type='radio'] {
     display: none;
   }
   .mytabs label {
+    display: none;
     padding-bottom: 16px;
     margin-right: 55px;
     /* background: #e2e2e2; */
     font-weight: bold;
     border-bottom: 5px solid #fff;
+  }
+  .comment-block {
+    padding: 30px 0;
+  }
+  .select-wrapper select {
+    display: none;
+  }
+  @media (min-width: 750px) {
+    .select-wrapper select {
+      display: block;
+      border: 1px solid #c3c3c3;
+      outline: none; /* Removes the focus outline, but you can keep it if you want */
+      background-color: white;
+      padding: 5px 15px; /* Add some padding for better appearance */
+      font-size: 16px; /* Set a default font size */
+    }
+    .mytabs label {
+      display: block;
+    }
+    .select-wrapper select {
+      display: flex;
+    }
   }
 
   .mytabs .tab {
@@ -93,7 +128,7 @@
     order: 1;
     display: none;
     border-top: 1px solid #c3c3c3;
-    padding-top: 100px;
+    // padding-top: 100px;
   }
   .mytabs .tab h2 {
     font-size: 3em;
@@ -111,15 +146,57 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    margin-top: 40px;
   }
-  .select-wrapper select {
-    border: 1px solid #c3c3c3;
-    outline: none; /* Removes the focus outline, but you can keep it if you want */
-    background-color: white;
-    padding: 5px 15px; /* Add some padding for better appearance */
-    font-size: 16px; /* Set a default font size */
+  .user-rating-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'rating date'
+      'name verified';
+    gap: 10px;
   }
-  .select;
+  .user-rating-wrapper .user {
+    grid-area: name;
+  }
+
+  .user-rating-wrapper .star-rating {
+    grid-area: rating;
+  }
+
+  .user-rating-wrapper .verified {
+    grid-area: verified;
+  }
+
+  .user-rating-wrapper .date-wrapper {
+    grid-area: date;
+  }
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+  @media (min-width: 750px) {
+    .user-rating-wrapper {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        'name verified'
+        'rating rating';
+
+      gap: 10px;
+    }
+    .mobile {
+      display: block;
+    }
+    .desktop {
+      display: none;
+    }
+    .user-rating-wrapper {
+      flex-direction: column;
+    }
+  }
 </style>
 <script>
   document.getElementById('sort-testimonials').addEventListener('change', function () {
@@ -173,8 +250,8 @@
           <!-- Sort -->
           <div class="select-wrapper">
             <select id="sort-comments">
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
+              <option value="newest">Recent</option>
+              <option value="oldest">Oldest</option>
             </select>
           </div>
 
@@ -188,7 +265,7 @@
                 {{ block.shopify_attributes }}
               >
                 <div class="testimonial-multicolumn-card content-container">
-                  <div class="">
+                  <div class="comment-block">
                     {% case block.type %}
                       {% when 'testimonial' %}
                         <div class="testimonial-block">
@@ -209,7 +286,7 @@
                               </div>
 
                               <div class="user-rating-wrapper">
-                                <p>{{ block.settings.name }}</p>
+                                <p class="user">{{ block.settings.name }}</p>
 
                                 {% assign rating = block.settings.rating | floor %}
                                 {% assign has_half_star = block.settings.rating | modulo: 1 %}
@@ -226,11 +303,11 @@
                                     {% endif %}
                                   </div>
                                 </div>
+                                <p class="verified ">{{ block.settings.verified_buyer }}</p>
+                                <div class="date-wrapper desktop">{{ block.settings.date }}</div>
                               </div>
-
-                              <p class="verified">{{ block.settings.verified_buyer }}</p>
                             </div>
-                            <div class="date-wrapper">{{ block.settings.date }}</div>
+                            <div class="date-wrapper mobile">{{ block.settings.date }}</div>
                           </div>
                         </div>
                         <div class="comment-block">
