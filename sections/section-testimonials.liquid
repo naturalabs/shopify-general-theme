@@ -107,7 +107,36 @@
     background: #fff;
     border-bottom: 5px solid black;
   }
+  .select-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .select-wrapper select {
+    border: 1px solid #c3c3c3;
+    outline: none; /* Removes the focus outline, but you can keep it if you want */
+    background-color: white;
+    padding: 5px 15px; /* Add some padding for better appearance */
+    font-size: 16px; /* Set a default font size */
+  }
+  .select;
 </style>
+<script>
+  document.getElementById('sort-testimonials').addEventListener('change', function () {
+    const method = this.value;
+    const testimonialsContainer = document.querySelector('.testimonial-grid-3');
+    let testimonials = Array.from(testimonialsContainer.children);
+
+    testimonials = testimonials.sort((a, b) => {
+      const dateA = new Date(a.querySelector('.date-wrapper').textContent.trim());
+      const dateB = new Date(b.querySelector('.date-wrapper').textContent.trim());
+      return method === 'newest' ? dateB - dateA : dateA - dateB;
+    });
+
+    testimonials.forEach((testimonial) => testimonialsContainer.appendChild(testimonial));
+  });
+</script>
+
 {%- liquid
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
   assign show_mobile_slider = false
@@ -139,42 +168,27 @@
       <div class="mytabs">
         <input type="radio" id="tabfree" name="mytabs" checked="checked">
         <label for="tabfree">Reviews</label>
-        <div class="tab">
-          <ul
-            class=" testimonial-grid-3"
-            id="Slider-{{ section.id }}"
-            role="list"
-          >
-            {%- liquid
-              assign highest_ratio = 0
-              for block in section.blocks
-                if block.settings.image.aspect_ratio > highest_ratio
-                  assign highest_ratio = block.settings.image.aspect_ratio
-                endif
-              endfor
-            -%}
-            {%- for block in section.blocks -%}
-              {%- assign empty_column = '' -%}
-              {%- if block.settings.image == blank
-                and block.settings.title == blank
-                and block.settings.text == blank
-                and block.settings.link_label == blank
-              -%}
-                {%- assign empty_column = ' multicolumn-list__item--empty' -%}
-              {%- endif -%}
 
+        <div class="tab">
+          <!-- Sort -->
+          <div class="select-wrapper">
+            <select id="sort-comments">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+            </select>
+          </div>
+
+          <ul class="testimonial-grid-3" id="Slider-{{ section.id }}" role="list">
+            {%- assign sorted_blocks = section.blocks | sort: 'settings.date' | reverse %}
+
+            {%- for block in sorted_blocks -%}
               <li
                 id="Slide-{{ section.id }}-{{ forloop.index }}"
-                class=" block-{{ forloop.index }}"
+                class="block-{{ forloop.index }}"
                 {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
               >
                 <div class="testimonial-multicolumn-card content-container">
                   <div class="">
-                    <!-- Edit here -->
                     {% case block.type %}
                       {% when 'testimonial' %}
                         <div class="testimonial-block">
@@ -203,13 +217,11 @@
 
                                 <div class="">
                                   <div class="star-rating">
-                                    {% liquid
-                                      for i in (1..rating)
-                                        render 'icon-star-full'
-                                      endfor
-                                    %}
+                                    {% for i in (1..rating) %}
+                                      {% render 'icon-star-full' %}
+                                    {% endfor %}
                                     {% if has_half_star > 0 %}
-                                      {%- render 'icon-star-half' -%}
+                                      {% render 'icon-star-half' %}
                                       {% assign total_stars = total_stars | plus: 1 %}
                                     {% endif %}
                                   </div>
@@ -218,7 +230,7 @@
 
                               <p class="verified">{{ block.settings.verified_buyer }}</p>
                             </div>
-                            <div class="date-wrapper">12/15/2023</div>
+                            <div class="date-wrapper">{{ block.settings.date }}</div>
                           </div>
                         </div>
                         <div class="comment-block">
@@ -243,14 +255,13 @@
                         <div class="likes-block">
                           <div class="likes-wrapper">
                             <p>Find this helpful?</p>
-                            {%- render 'icon-thumb-up' -%}
+                            {% render 'icon-thumb-up' %}
                             <p>{{ block.settings.thumb_up }}</p>
-                            {%- render 'icon-thumb-down' -%}
+                            {% render 'icon-thumb-down' %}
                             <p>{{ block.settings.thumb_down }}</p>
                           </div>
                         </div>
                     {% endcase %}
-                    <!-- End Edit here -->
                   </div>
                 </div>
               </li>
@@ -268,8 +279,9 @@
             nulla pariatur.
           </p>
         </div>
-        <!-- Tabs Ends here -->
       </div>
+
+      <!-- Tabs Ends here -->
       {%- if show_mobile_slider -%}
         <div class="slider-buttons no-js-hidden medium-hide">
           <button
@@ -406,6 +418,12 @@
           "id": "name",
           "label": "Name",
           "default": "Name/Last Name"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "01/11/2023"
         },
         {
           "type": "range",
