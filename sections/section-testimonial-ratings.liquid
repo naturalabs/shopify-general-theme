@@ -248,7 +248,7 @@
                       {% assign bar_number_id = 'bar_number-' | append: i %}
                       {% assign progress = block.settings[progress_id] %}
                       {% assign bar_number = block.settings[bar_number_id] %}
-                      <div class="progress-container mobile">
+                      <div class="progress-container mobile-ratings">
                         <div class="progress-bar">
                           <div class="progress" style="width: {{ progress }}%;">
                             {{ progress }}
@@ -394,7 +394,7 @@
   .icon-grid > :nth-child(n + 4) {
     display: none;
   }
-  .mobile {
+  .mobile-ratings {
     display: none;
   }
 
@@ -406,7 +406,7 @@
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(2, 1fr);
     }
-    .mobile {
+    .mobile-ratings {
       display: flex;
     }
   }
