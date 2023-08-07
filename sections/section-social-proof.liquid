@@ -52,6 +52,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+  .social-multicolumn-card {
+    position: relative;
+    box-sizing: border-box;
+  }
 
   .slider-button {
     position: absolute;
@@ -127,7 +131,7 @@
               style="--animation-order: {{ forloop.index }};"
             {% endif %}
           >
-            <div class="multicolumn-card content-container">
+            <div class="social-multicolumn-card content-container">
               {%- if block.settings.image != blank -%}
                 {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
                   {% assign spaced_image = true %}
@@ -226,14 +230,7 @@
           >
             {% render 'icon-caret' %}
           </button>
-          {% comment %}
-            <div class="slider-counter caption">
-              <span class="slider-counter--current">1</span>
-              <span aria-hidden="true"> / </span>
-              <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-              <span class="slider-counter--total">{{ section.blocks.size }}</span>
-            </div>
-          {% endcomment %}
+
           <button
             type="button"
             class="slider-button slider-button--next"
