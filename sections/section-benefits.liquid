@@ -18,7 +18,8 @@
   h2.section-benefits__heading {
     margin-bottom: 0;
   }
-  .section-benefits__card svg {
+  .section-benefits__card svg,
+  .section-benefits__card img {
     width: 48px;
     height: 48px;
   }
@@ -250,16 +251,19 @@
             {%- endif -%}
             <div class="section-benefits__card card-{{ forloop.index }} benefits-multicolumn-card__info section-benefits__card-info">
               <div class="multicolumn-card__element">
-                {% comment %}
+                <div class="benefits-icon">
                   {%- if block.settings['icon-1'] != blank -%}
-                    <img src="{{ block.settings.icon-1 | img_url: '100x' }}" width="auto" loading="lazy" alt="">
-                  {%- endif -%}
-                {% endcomment %}
-                {%- if block.settings['title-1'] != blank -%}
-                  <div class="benefits-icon">
+                    <img
+                      src="{{ block.settings.icon-1 | image_url }}"
+                      height="100"
+                      width="100"
+                      loading="lazy"
+                      alt=""
+                    >
+                  {%- else -%}
                     {%- render 'icon-benefits-1' -%}
-                  </div>
-                {%- endif -%}
+                  {%- endif -%}
+                </div>
 
                 <div class="benefits-text-block">
                   {%- if block.settings['title-1'] != blank -%}
@@ -271,16 +275,20 @@
                 </div>
               </div>
               <div class="multicolumn-card__element">
-                {% comment %}
+                <div class="benefits-icon">
                   {%- if block.settings['icon-2'] != blank -%}
-                    <img src="{{ block.settings.icon-2 | img_url: '100x' }}" width="auto" loading="lazy" alt="">
-                  {%- endif -%}
-                {% endcomment %}
-                {%- if block.settings['title-2'] != blank -%}
-                  <div class="benefits-icon">
+                    <img
+                      src="{{ block.settings.icon-2 | image_url }}"
+                      height="100"
+                      width="100"
+                      loading="lazy"
+                      alt=""
+                    >
+                  {%- else -%}
                     {%- render 'icon-benefits-2' -%}
-                  </div>
-                {%- endif -%}
+                  {%- endif -%}
+                </div>
+
                 <div class="benefits-text-block">
                   {%- if block.settings['title-2'] != blank -%}
                     <h3 class="benefits-header inline-richtext">{{ block.settings['title-2'] }}</h3>
@@ -291,16 +299,20 @@
                 </div>
               </div>
               <div class="multicolumn-card__element">
-                {% comment %}
+                <div class="benefits-icon">
                   {%- if block.settings['icon-3'] != blank -%}
-                    <img src="{{ block.settings.icon-3 | img_url: '100x' }}" width="auto" loading="lazy" alt="">
-                  {%- endif -%}
-                {% endcomment %}
-                {%- if block.settings['title-3'] != blank -%}
-                  <div class="benefits-icon">
+                    <img
+                      src="{{ block.settings.icon-3 | image_url }}"
+                      height="100"
+                      width="100"
+                      loading="lazy"
+                      alt=""
+                    >
+                  {%- else -%}
                     {%- render 'icon-benefits-3' -%}
-                  </div>
-                {%- endif -%}
+                  {%- endif -%}
+                </div>
+
                 <div class=" benefits-text-block">
                   {%- if block.settings['title-3'] != blank -%}
                     <h3 class="benefits-header inline-richtext">{{ block.settings['title-3'] }}</h3>
@@ -580,58 +592,58 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+          "label": "Card Image"
         },
         {
           "type": "image_picker",
           "id": "icon-1",
-          "label": "Icon 1"
+          "label": "First Icon"
         },
         {
           "type": "inline_richtext",
           "id": "title-1",
           "default": "Egestas elit dui scelerisque",
-          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+          "label": "First Title"
         },
         {
           "type": "text",
           "id": "text-1",
           "default": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
-          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+          "label": "First Description"
         },
         {
           "type": "image_picker",
           "id": "icon-2",
-          "label": "Icon 1"
+          "label": "Second Icon"
         },
         {
           "type": "inline_richtext",
           "id": "title-2",
           "default": "Id eros pellentesque facilisi",
-          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+          "label": "Second Title"
         },
         {
           "type": "text",
           "id": "text-2",
           "default": "Id eros pellentesque facilisi id mollis faucibus commodo enim.",
-          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+          "label": "Second Description"
         },
         {
           "type": "image_picker",
           "id": "icon-3",
-          "label": "Icon 1"
+          "label": "Third Icon"
         },
         {
           "type": "inline_richtext",
           "id": "title-3",
           "default": "Nunc, pellentesque velit",
-          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+          "label": "Third Title"
         },
         {
           "type": "text",
           "id": "text-3",
           "default": "Nunc, pellentesque velit malesuada non massa arcu.",
-          "label": "t:sections.multicolumn.blocks.column.settings.text.label"
+          "label": "Third Description"
         }
       ]
     }
