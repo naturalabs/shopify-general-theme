@@ -161,11 +161,12 @@
   }
   .user-rating-wrapper {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto;
     grid-template-areas:
       'rating date'
       'name verified';
     gap: 10px;
+    width: 100%;
   }
   .user-rating-wrapper .user {
     grid-area: name;
