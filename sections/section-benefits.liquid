@@ -71,6 +71,7 @@
 
   .brag-bars-multicolumn-list .block-1 {
     order: 2;
+    margin-bottom: 20px;
   }
 
   .brag-bars-multicolumn-list .block-2 {
@@ -98,6 +99,7 @@
 
     .brag-bars-multicolumn-list .block-1 {
       order: 1;
+      margin-bottom: 0px;
     }
 
     .brag-bars-multicolumn-list .block-2 {
@@ -198,7 +200,7 @@
         {%- endif -%}
         <li
           id="Slide-{{ section.id }}-{{ forloop.index }}"
-          class="multicolumn-list__item block-{{ forloop.index }}"
+          class=" block-{{ forloop.index }}"
           {{ block.shopify_attributes }}
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
