@@ -71,6 +71,18 @@
   .section-header-button {
     margin: 20px 0 0 0;
   }
+
+  .header-image-with-text__content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-self: center;
+    padding-top: 4rem;
+    position: relative;
+    z-index: 1;
+  }
   @media (max-width: 767px) {
     .ratings-block.mobile,
     .header-grid.mobile {
@@ -94,7 +106,6 @@
       top: 0;
       left: 0;
       right: 0;
-      /* additional styles for ratings block */
     }
 
     .header-grid {
@@ -102,24 +113,11 @@
       bottom: 0;
       left: 0;
       right: 0;
-      /* additional styles for icon-with-text-grid */
     }
     .header-grid.desktop {
       display: none;
     }
   }
-  .header-image-with-text__content {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    align-self: center;
-    padding-top: 4rem;
-    position: relative;
-    z-index: 1;
-  }
-
   @media (min-width: 750px) {
     .header-image-with-text__content {
       padding-right: 4rem;
@@ -166,7 +164,7 @@
           <!-- Start of ratings block and icon-with-text-grid -->
           {%- for block in section.blocks -%}
             {% case block.type %}
-                {% comment %} ratings {% endcomment %}
+                <!-- ratings -->
               {%- when 'ratings' -%}
                 <div class="ratings-block mobile">
                   {% assign rating = block.settings.ratings | round %}
@@ -680,7 +678,7 @@
     {
       "type": "icon-text",
       "name": "Check with Text",
-      "limit": 5,
+      "limit": 4,
       "settings": [
         {
           "type": "text",
@@ -693,7 +691,7 @@
     {
       "type": "icon-with-text-grid",
       "name": "Icon with text grid",
-      "limit": 3,
+      "limit": 1,
       "settings": [
         {
           "type": "image_picker",
