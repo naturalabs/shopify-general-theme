@@ -121,6 +121,77 @@
   .testimonial-multicolumn-card__info {
     padding: 2.5rem 1rem;
   }
+
+  /*  star rating */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-row {
+    display: contents;
+  }
+
+  .testimonial-star-rating {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 28px;
+  }
+
+  .testimonial-star-rating .testimonial-star {
+    color: lightgray;
+  }
+
+  .testimonial-star-rating .testimonial-star.filled {
+    color: #ffb43f;
+  }
+
+  .testimonial-star {
+    font-size: 30px;
+  }
+  /* progress bar  */
+  .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .progress-bar {
+    width: 200px;
+    height: 20px; /* adjust as needed */
+    background-color: gray;
+  }
+
+  .progress {
+    height: 100%;
+    background-color: #ffb43f;
+    color: transparent; /* hides the text */
+  }
+  /* icon */
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+  .icon-grid > :nth-child(n + 4) {
+    display: none;
+  }
+  .mobile-ratings {
+    display: none;
+  }
+
+  @media (min-width: 750px) {
+    .icon-grid > :nth-child(n + 4) {
+      display: grid;
+    }
+    .icon-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .mobile-ratings {
+      display: flex;
+    }
+  }
 </style>
 {%- liquid
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
@@ -245,10 +316,12 @@
                     </div>
                   {% when 'bar' %}
                     {% for i in (1..5) %}
-                      {% assign progress_id = 'progress-' | append: i %}
-                      {% assign bar_number_id = 'bar_number-' | append: i %}
-                      {% assign progress = block.settings[progress_id] %}
-                      {% assign bar_number = block.settings[bar_number_id] %}
+                      {% liquid
+                        assign progress_id = 'progress-' | append: i
+                        assign bar_number_id = 'bar_number-' | append: i
+                        assign progress = block.settings[progress_id]
+                        assign bar_number = block.settings[bar_number_id]
+                      %}
 
                       <div class="progress-container mobile-ratings">
                         <div class="progress-bar">
@@ -341,79 +414,6 @@
     </div>
   </div>
 </div>
-
-<style>
-  /*  star rating */
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .testimonial-row {
-    display: contents;
-  }
-
-  .testimonial-star-rating {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 28px;
-  }
-
-  .testimonial-star-rating .testimonial-star {
-    color: lightgray;
-  }
-
-  .testimonial-star-rating .testimonial-star.filled {
-    color: #ffb43f;
-  }
-
-  .testimonial-star {
-    font-size: 30px;
-  }
-  /* progress bar  */
-  .progress-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .progress-bar {
-    width: 200px;
-    height: 20px; /* adjust as needed */
-    background-color: gray;
-  }
-
-  .progress {
-    height: 100%;
-    background-color: #ffb43f;
-    color: transparent; /* hides the text */
-  }
-  /* icon */
-  .icon-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-  }
-  .icon-grid > :nth-child(n + 4) {
-    display: none;
-  }
-  .mobile-ratings {
-    display: none;
-  }
-
-  @media (min-width: 750px) {
-    .icon-grid > :nth-child(n + 4) {
-      display: grid;
-    }
-    .icon-grid {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-    }
-    .mobile-ratings {
-      display: flex;
-    }
-  }
-</style>
 
 {% schema %}
 {
@@ -516,6 +516,7 @@
     {
       "type": "testimonial_ratings",
       "name": "Testimonial Ratings",
+      "limit": 1,
       "settings": [
         {
           "type": "text",
@@ -542,7 +543,8 @@
     },
     {
       "type": "testimonial",
-      "name": "Testimonial",
+      "name": "Testimonial Stars",
+      "limit": 1,
       "settings": [
         {
           "type": "range",
@@ -594,6 +596,7 @@
     {
       "type": "bar",
       "name": "Bar",
+      "limit": 1,
       "settings": [
         {
           "type": "range",
@@ -675,7 +678,7 @@
     {
       "type": "icon",
       "name": "Icon",
-      "limit": 8,
+      "limit": 1,
       "settings": [
         {
           "type": "image_picker",
@@ -722,6 +725,7 @@
     {
       "type": "buttons",
       "name": "Buttons",
+      "limit": 1,
       "settings": [
         {
           "type": "text",
