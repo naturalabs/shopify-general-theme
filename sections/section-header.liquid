@@ -53,6 +53,9 @@
     gap: 22px;
     margin: 40px auto 0;
   }
+  .header-grid.desktop {
+    display: grid;
+  }
   .header-grid__items {
     display: flex;
     align-items: center;
@@ -100,6 +103,9 @@
       left: 0;
       right: 0;
       /* additional styles for icon-with-text-grid */
+    }
+    .header-grid.desktop {
+      display: none;
     }
   }
   .header-image-with-text__content {
@@ -175,7 +181,7 @@
                 </div>
               {%- when 'icon-with-text-grid' -%}
                 <div class="header-grid mobile">
-                  <div class="header-grid__items">
+                  <div class="header-grid__items desktop">
                     {% if block.settings['icon-1'] != blank %}
                       {{ block.settings['icon-1'] | image_url: '50x' }}
                     {% else %}
