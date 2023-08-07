@@ -249,6 +249,7 @@
                       {% assign bar_number_id = 'bar_number-' | append: i %}
                       {% assign progress = block.settings[progress_id] %}
                       {% assign bar_number = block.settings[bar_number_id] %}
+
                       <div class="progress-container mobile-ratings">
                         <div class="progress-bar">
                           <div class="progress" style="width: {{ progress }}%;">
@@ -258,6 +259,7 @@
                         <div>({{ bar_number }})</div>
                       </div>
                     {% endfor %}
+
                   {% when 'icon' %}
                     <div class="icon-grid">
                       {% for i in (1..8) %}
