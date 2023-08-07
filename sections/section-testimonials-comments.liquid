@@ -305,13 +305,16 @@
 
                                 <div class="">
                                   <div class="star-rating">
-                                    {% for i in (1..rating) %}
-                                      {% render 'icon-star-full' %}
-                                    {% endfor %}
-                                    {% if has_half_star > 0 %}
-                                      {% render 'icon-star-half' %}
-                                      {% assign total_stars = total_stars | plus: 1 %}
-                                    {% endif %}
+                                    {%- liquid
+                                      for i in (1..rating)
+                                        render 'icon-star-full'
+                                      endfor
+
+                                      if has_half_star > 0
+                                        render 'icon-star-half'
+                                        assign total_stars = total_stars | plus: 1
+                                      endif
+                                    -%}
                                   </div>
                                 </div>
                                 <p class="verified ">{{ block.settings.verified_buyer }}</p>
@@ -416,7 +419,7 @@
 
 {% schema %}
 {
-  "name": "Testimonials",
+  "name": "Testimonials Comments",
   "settings": [
     {
       "type": "select",
@@ -596,7 +599,7 @@
   ],
   "presets": [
     {
-      "name": "testimonial"
+      "name": "Testimonial Comments"
     }
   ]
 }
