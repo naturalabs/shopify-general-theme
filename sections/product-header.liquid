@@ -126,35 +126,25 @@
     <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
       <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
         <div
-          class="image-with-text__media image-with-text__media--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} global-media-settings {% if section.settings.image != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
-          {% if section.settings.height == 'adapt' and section.settings.image != blank %}
-            style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
+          class="image-with-text__media image-with-text__media--{{ section.settings.height }} gradient color-{{ section.settings.color_scheme }} global-media-settings {% if product.images[0] != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+          {% if section.settings.height == 'adapt' and product.images[0] != blank %}
+            style="padding-bottom: {{ 1 | divided_by: product.images[0].aspect_ratio | times: 100 }}%;"
           {% endif %}
         >
-          {%- if section.settings.image != blank -%}
-            {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
-              {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
-              {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
-            {%- endcapture -%}
-            {%- else -%}
-              {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
-              {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
-            {%- endcapture -%}
-            {%- endif -%}
-            {{
-              section.settings.image
-              | image_url: width: 1500
-              | image_tag: loading: 'lazy', sizes: sizes, widths: widths
-            }}
+          {%- if product.images[0] != blank -%}
+            <img
+              src="{{ product.images[0] | img_url: '1500x' }}"
+              alt="{{ product.title }}"
+              loading="lazy"
+              sizes="{{ sizes }}"
+              style="max-width: 100%; height: auto;"
+            >
           {%- else -%}
             {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
         </div>
       </div>
+
       <div class="image-with-text__text-item grid__item">
         <div
           id="ImageWithText--{{ section.id }}"
@@ -181,7 +171,8 @@
                   class="product-heading image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
                   {{ block.shopify_attributes }}
                 >
-                  {{ block.settings.heading }}
+                  {% comment %} {{ block.settings.heading }} {% endcomment %}
+                  {{ product.title }}
                 </h2>
               {%- when 'caption' -%}
                 <p
@@ -192,8 +183,13 @@
                 </p>
               {%- when 'text' -%}
                 <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.text }}
+                  {% if product.description != blank %}
+                    {{ product.description }}
+                  {% else %}
+                    {{ block.settings.text }}
+                  {% endif %}
                 </div>
+
               {%- when 'icon-text' -%}
                 <div
                   class="image-with-text__text icon-text rte {{ block.settings.text_style }}"
@@ -560,14 +556,14 @@
     },
     {
       "type": "text",
-      "name": "t:sections.image-with-text.blocks.text.name",
+      "name": "Description",
       "limit": 1,
       "settings": [
         {
           "type": "richtext",
           "id": "text",
           "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
-          "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+          "label": "Product Description"
         },
         {
           "type": "select",
