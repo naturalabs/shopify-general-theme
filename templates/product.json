@@ -56,6 +56,12 @@
             "button_style_secondary": false
           }
         },
+        "c336096e-89fa-4e0c-a49a-8b2b0aadacfb": {
+          "type": "payment",
+          "settings": {
+            "payment_enable": true
+          }
+        },
         "template--19636010418494__87f57103-adbb-4938-801e-7e4cc8016bd1-icon-with-text-grid-1": {
           "type": "icon-with-text-grid",
           "settings": {
@@ -74,6 +80,7 @@
         "template--19636010418494__87f57103-adbb-4938-801e-7e4cc8016bd1-icon-text-3",
         "template--19636010418494__87f57103-adbb-4938-801e-7e4cc8016bd1-icon-text-4",
         "template--19636010418494__87f57103-adbb-4938-801e-7e4cc8016bd1-button-1",
+        "c336096e-89fa-4e0c-a49a-8b2b0aadacfb",
         "template--19636010418494__87f57103-adbb-4938-801e-7e4cc8016bd1-icon-with-text-grid-1"
       ],
       "settings": {
