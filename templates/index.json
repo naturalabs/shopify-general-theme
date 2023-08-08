@@ -28,7 +28,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>",
+            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/strong><\/p>",
             "text_style": "body"
           }
         },
@@ -139,7 +139,12 @@
           }
         }
       },
-      "block_order": ["brag-bars-image1", "brag-bars-image2", "brag-bars-image3", "brag-bars-image4"],
+      "block_order": [
+        "brag-bars-image1",
+        "brag-bars-image2",
+        "brag-bars-image3",
+        "brag-bars-image4"
+      ],
       "settings": {
         "title": "Multicolumn",
         "heading_size": "h1",
@@ -178,7 +183,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>",
+            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/strong><\/p>",
             "text_style": "body"
           }
         },
@@ -251,7 +256,7 @@
         "template--19526944653630__860a7610-9065-451f-adfc-85b0089b3a81-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/p>",
             "text_style": "body"
           }
         },
@@ -320,7 +325,7 @@
         "template--19526944653630__ff311b4e-76e3-40be-b381-d88043279a6f-column-3": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title-1": "Egestas elit dui scelerisque",
             "text-1": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
             "title-2": "Id eros pellentesque facilisi",
@@ -349,7 +354,7 @@
       "settings": {
         "heading": "Talk about your brand",
         "heading_size": "h1",
-        "caption": "Add a tagline",
+        "caption": "CAPTION",
         "text_style": "caption-with-letter-spacing",
         "text_size": "medium",
         "content_alignment": "center",
@@ -380,7 +385,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
           }
         },
         "table_row": {
@@ -513,7 +518,7 @@
           "settings": {
             "ratings": 5,
             "title": "Delicious Coffee",
-            "text": "<p>“I love how convenient it is, and how is makesthe perfect ice coffee!!’</p>",
+            "text": "<p>“I love how convenient it is, and how is makesthe perfect ice coffee!!’<\/p>",
             "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
@@ -525,7 +530,7 @@
           "settings": {
             "ratings": 5,
             "title": "Easy To Make",
-            "text": "<p>“To say I am Obsessed with all these coffees isan understatement. I have limited time inmorning and it so easy and fast to prepare, andthe taste is amazing !!!”</p>",
+            "text": "<p>“To say I am Obsessed with all these coffees isan understatement. I have limited time inmorning and it so easy and fast to prepare, andthe taste is amazing !!!”<\/p>",
             "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
@@ -537,7 +542,7 @@
           "settings": {
             "ratings": 5,
             "title": "Quick & Easy",
-            "text": "<p>“Javy is so easy and do good! I’ve been makingmy own iced coffees at home for awhile, butthis is the best yet!”</p>",
+            "text": "<p>“Javy is so easy and do good! I’ve been makingmy own iced coffees at home for awhile, butthis is the best yet!”<\/p>",
             "customer": "John Doe",
             "verified_buyer": "Verified Buyer",
             "link_label": "",
@@ -545,7 +550,11 @@
           }
         }
       },
-      "block_order": ["social-proof-1", "social-proof-2", "social-proof-3"],
+      "block_order": [
+        "social-proof-1",
+        "social-proof-2",
+        "social-proof-3"
+      ],
       "settings": {
         "title": "Multicolumn",
         "heading_size": "h1",
@@ -584,7 +593,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>",
+            "text": "<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/strong><\/p>",
             "text_style": "body"
           }
         },
@@ -597,7 +606,12 @@
           }
         }
       },
-      "block_order": ["caption", "heading", "text", "button"],
+      "block_order": [
+        "caption",
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -661,7 +675,13 @@
           }
         }
       },
-      "block_order": ["section-faq-1", "section-faq-2", "section-faq-3", "section-faq-4", "section-faq-5"],
+      "block_order": [
+        "section-faq-1",
+        "section-faq-2",
+        "section-faq-3",
+        "section-faq-4",
+        "section-faq-5"
+      ],
       "settings": {
         "caption": "Caption",
         "heading": "Bibendum amet at molestie mattis.",
@@ -684,9 +704,9 @@
         "template--19526944653630__c9f622e0-5da7-4ea3-b4bd-d9c00313727a-column-1": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -695,9 +715,9 @@
         "template--19526944653630__c9f622e0-5da7-4ea3-b4bd-d9c00313727a-column-2": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -706,9 +726,9 @@
         "template--19526944653630__c9f622e0-5da7-4ea3-b4bd-d9c00313727a-column-3": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -717,9 +737,9 @@
         "template--19526944653630__c9f622e0-5da7-4ea3-b4bd-d9c00313727a-column-4": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
+            "image": "shopify:\/\/shop_images\/center-placeholder.svg",
             "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
+            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.<\/p>",
             "link_label": "More info",
             "link": "",
             "link_url": ""
@@ -790,15 +810,16 @@
         },
         "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-icon-1": {
           "type": "icon",
-          "settings": {}
+          "settings": {
+          }
         },
         "template--20066280505662__039d6995-8e45-4326-8a87-d7b8d3ca9039-buttons-1": {
           "type": "buttons",
           "settings": {
             "button_1_text": "Write a Review",
-            "button_1_url": "/",
+            "button_1_url": "\/",
             "button_2_text": "Ask a Question",
-            "button_2_url": "/"
+            "button_2_url": "\/"
           }
         }
       },
@@ -824,8 +845,8 @@
         "1567a0fd-2bbf-4e11-8466-09df78af4f48": {
           "type": "testimonial",
           "settings": {
-            "name": "Name/Last Name",
-            "date": "01/11/2023",
+            "name": "Name\/Last Name",
+            "date": "01\/11\/2023",
             "rating": 5,
             "verified_buyer": "Verified Buyer",
             "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -836,8 +857,8 @@
         "2fe0ea2d-c894-4dc5-951a-362defe1efe2": {
           "type": "testimonial",
           "settings": {
-            "name": "Name/Last Name",
-            "date": "01/11/2023",
+            "name": "Name\/Last Name",
+            "date": "01\/11\/2023",
             "rating": 5,
             "verified_buyer": "Verified Buyer",
             "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -846,7 +867,10 @@
           }
         }
       },
-      "block_order": ["1567a0fd-2bbf-4e11-8466-09df78af4f48", "2fe0ea2d-c894-4dc5-951a-362defe1efe2"],
+      "block_order": [
+        "1567a0fd-2bbf-4e11-8466-09df78af4f48",
+        "2fe0ea2d-c894-4dc5-951a-362defe1efe2"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
