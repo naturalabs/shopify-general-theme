@@ -60,6 +60,10 @@
     align-items: center;
     gap: 22px;
   }
+  .header-payment {
+    display: none;
+  }
+
   .header-grid__items svg {
     margin: 0 auto;
   }
@@ -97,12 +101,21 @@
 
   /* padding bottom desktop */
   @media (min-width: 750px) {
+    .header-payment {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .product-list-payment {
+      display: flex;
+      padding: 0;
+    }
     .product-image-with-text__content {
       padding: 4rem;
     }
     .section-header-button {
       margin-top: 40px;
-      margin-bottom: 40px;
+      /* margin-bottom: 40px; */
     }
   }
 </style>
@@ -209,7 +222,7 @@
                 {%- endif -%}
               {%- when 'payment' -%}
                 <div class="header-payment">
-                  <ul class="list list-payment" role="list">
+                  <ul class="list product-list-payment" role="list">
                     {%- for type in shop.enabled_payment_types -%}
                       <li class="list-payment__item">
                         {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
