@@ -3,8 +3,8 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -14,7 +14,26 @@
     }
   }
 {%- endstyle -%}
-
+<style>
+  .recommended-caption {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 20px */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .recommended-header {
+    max-width: 1280px;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+  }
+  .recommended-link {
+    color: #0f62fe;
+  }
+</style>
 {%- liquid
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
   assign show_mobile_slider = false
@@ -35,12 +54,12 @@
       style="text-align: {{ section.settings.heading_alignment }};"
     >
       {%- if section.settings.caption != blank -%}
-        <p class="caption ">
+        <p class="recommended-caption caption">
           {{ section.settings.caption | escape }}
         </p>
       {% endif %}
       {%- if section.settings.heading != blank -%}
-        <h2 class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
+        <h2 class="recommended-header collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.heading }}
         </h2>
       {% endif %}
@@ -131,7 +150,7 @@
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
-                    class="link animate-arrow"
+                    class="recommended-link link animate-arrow"
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}

@@ -505,80 +505,6 @@
         "heading_4": "INSTANT"
       }
     },
-    "19cfce1f-471c-4bd7-bb2f-dfcafa1d3738": {
-      "type": "section-recommended",
-      "blocks": {
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-1": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
-            "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
-            "link_label": "More info",
-            "link": "",
-            "link_url": ""
-          }
-        },
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-2": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
-            "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
-            "link_label": "More info",
-            "link": "",
-            "link_url": ""
-          }
-        },
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
-            "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
-            "link_label": "More info",
-            "link": "",
-            "link_url": ""
-          }
-        },
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-4": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/center-placeholder.svg",
-            "title": "Title",
-            "text": "<p>Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.</p>",
-            "link_label": "More info",
-            "link": "",
-            "link_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-1",
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-2",
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-3",
-        "template--19526944653630__19cfce1f-471c-4bd7-bb2f-dfcafa1d3738-column-4"
-      ],
-      "settings": {
-        "caption": "CAPTION",
-        "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum amet at molestie mattis.",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "section",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "section_social_proof": {
       "type": "section-social-proof",
       "blocks": {
@@ -938,7 +864,6 @@
     "860a7610-9065-451f-adfc-85b0089b3a81",
     "section_benefits",
     "section_competitor",
-    "19cfce1f-471c-4bd7-bb2f-dfcafa1d3738",
     "section_social_proof",
     "section_offer",
     "section_faq",
