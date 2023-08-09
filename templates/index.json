@@ -820,7 +820,42 @@
       }
     },
     "section_comments": {
-      "type": "section-testimonials-comments"
+      "type": "section-testimonials-comments",
+      "blocks": {
+        "5e896327-8ef9-4e58-be7e-f2d254f20a4c": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Name/Last Name",
+            "date": "01/11/2023",
+            "rating": 5,
+            "verified_buyer": "Verified Buyer",
+            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "thumb_up": "0",
+            "thumb_down": "0"
+          }
+        },
+        "83d7b8c9-111e-449c-8f18-0b3b462c5c09": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Name/Last Name",
+            "date": "01/11/2023",
+            "rating": 5,
+            "verified_buyer": "Verified Buyer",
+            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "thumb_up": "0",
+            "thumb_down": "0"
+          }
+        }
+      },
+      "block_order": ["5e896327-8ef9-4e58-be7e-f2d254f20a4c", "83d7b8c9-111e-449c-8f18-0b3b462c5c09"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
