@@ -131,17 +131,17 @@
             style="padding-bottom: {{ 1 | divided_by: product.images[0].aspect_ratio | times: 100 }}%;"
           {% endif %}
         >
-          {%- if product.images[0] != blank -%}
+          {% if product.images[0] %}
             <img
-              src="{{ product.images[0] | img_url: '1500x' }}"
+              src="{{ product.images[0] | image_url }}"
               alt="{{ product.title }}"
               loading="lazy"
-              sizes="{{ sizes }}"
-              style="max-width: 100%; height: auto;"
+              width="auto"
+              height="auto"
             >
-          {%- else -%}
+          {% else %}
             {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-          {%- endif -%}
+          {% endif %}
         </div>
       </div>
 
