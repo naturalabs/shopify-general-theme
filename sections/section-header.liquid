@@ -61,7 +61,8 @@
     align-items: center;
     gap: 22px;
   }
-  .ratings-block.mobile {
+  .image-with-text__media .ratings-block.mobile,
+  .image-with-text__media .header-grid.mobile {
     display: none;
   }
   .ratings-block.desktop {
@@ -84,8 +85,8 @@
     z-index: 1;
   }
   @media (max-width: 767px) {
-    .ratings-block.mobile,
-    .header-grid.mobile {
+    .image-with-text__media .ratings-block.mobile,
+    .image-with-text__media .header-grid.mobile {
       display: flex;
       justify-content: center;
     }
@@ -101,14 +102,14 @@
       position: relative;
     }
 
-    .ratings-block {
+    .image-with-text__media .ratings-block.mobile {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
     }
 
-    .header-grid {
+    .image-with-text__media .header-grid.mobile {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -116,6 +117,12 @@
     }
     .header-grid.desktop {
       display: none;
+    }
+    .ratings-block.mobile {
+      align-items: flex-start;
+    }
+    .header-grid__items {
+      align-items: flex-end;
     }
   }
   @media (min-width: 750px) {
@@ -178,8 +185,8 @@
                   </p>
                 </div>
               {%- when 'icon-with-text-grid' -%}
-                <div class="header-grid mobile">
-                  <div class="header-grid__items desktop">
+                <div class="header-grid mobile desktop">
+                  <div class="header-grid__items ">
                     {% if block.settings['icon-1'] != blank %}
                       {{ block.settings['icon-1'] | image_url: '50x' }}
                     {% else %}
